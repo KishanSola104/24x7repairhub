@@ -223,6 +223,15 @@ body {
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .menu-toggle { display: inline-flex; }
+
+.sub-navbar{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+  
 }
 
 /* Tablet */
