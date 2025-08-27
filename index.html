@@ -1,11 +1,221 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="24x7 Repair Hub offers expert repair services for all home appliances including AC, TV, Fridge, Washing Machine and more. Available anytime, anywhere." />
+  <meta name="keywords"
+    content="home appliances repair, AC repair, fridge repair, washing machine repair, TV repair, 24x7 service" />
+  <meta name="author" content="24x7 Repair Hub" />
+
+  <title>24x7 Repair Hub - Home Appliances Repair Center</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
-    
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <!-- Sub Navbar (half-oval) -->
+    <div class="sub-navbar container" role="region" aria-label="Contact info">
+      <address class="contact-left">
+        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+        <a href="tel:+9196622347518">+91 96623 47518</a>
+      </address>
+
+      <address class="contact-right">
+        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+        <a href="mailto:Info@24x7repairhub.in">Info@24x7repairhub.in</a>
+      </address>
+    </div>
+
+    <!-- Main Navbar -->
+    <nav class="main-navbar container" role="navigation" aria-label="Main Navigation">
+      <div class="left-logo">
+        <a href="/" aria-label="24x7 Repair Hub Home">
+          <img src="/images/logos/Logo2.png" alt="24x7 Repair Hub Logo" class="logo-img" />
+        </a>
+      </div>
+
+      <ul class="nav-links" id="nav-links" role="menubar" aria-label="Primary">
+        <li role="none"><a role="menuitem" href="/" class="active">Home</a></li>
+        <li role="none"><a role="menuitem" href="/about">About Us</a></li>
+
+        <!-- Dropdown parent -->
+        <li role="none" class="dropdown">
+          <a role="menuitem" href="#" aria-haspopup="true" aria-expanded="false">Services</a>
+          <ul class="dropdown-menu" role="menu">
+            <li role="none"><a role="menuitem" href="#">TV Repair</a></li>
+            <li role="none"><a role="menuitem" href="#">AC Repair</a></li>
+            <li role="none"><a role="menuitem" href="#">Washing Machine Repair</a></li>
+            <li role="none"><a role="menuitem" href="#">Refrigerator Repair</a></li>
+            <li role="none"><a role="menuitem" href="#">Microwave Repair</a></li>
+            <li role="none"><a role="menuitem" href="#">Dishwasher Repair</a></li>
+          </ul>
+        </li>
+
+        <li role="none"><a role="menuitem" href="/contact">Contact Us</a></li>
+        <li role="none"><a role="menuitem" href="/privacy-policy">Privacy Policy</a></li>
+        <li role="none"><button role="menuitem" class="btn" id="bookNow-btn">Book Now</button></li>
+      </ul>
+
+
+      <div class="nav-controls">
+        <!-- Mobile toggle -->
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false"
+          aria-controls="nav-links">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+      <!-- Mobile Menu -->
+      <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+          <div class="mobile-logo">
+            <img src="/images/logos/Logo2.png" alt="Logo" />
+          </div>
+          <button class="close-btn" id="closeMenu">&times;</button>
+        </div>
+
+        <a href="#">Home</a>
+        <a href="#">About Us</a>
+
+        <!-- Services with clickable submenu -->
+        <div class="menu-item">
+          <a href="#" id="servicesToggle">Services <span class="arrow"><i
+                class="fa-solid fa-chevron-down"></i></span></a>
+          <div class="submenu" id="servicesSubmenu">
+            <a href="#">TV Repair</a>
+            <a href="#">AC Repair</a>
+            <a href="#">Washing Machine Repair</a>
+            <a href="#">Refrigerator Repair</a>
+            <a href="#">Microwave Repair</a>
+            <a href="#">Dishwasher Repair</a>
+          </div>
+        </div>
+
+        <a href="#">Contact Us</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#" class="btn" id="bookNow-btn">Book Now</a>
+      </div>
+
+
+
+    </nav>
+  </header>
+
+  <!-- ============ MAIN CONTENT ============ -->
+  <main class="container">
+    <!-- Placeholder for page content -->
+    <section class="hero">
+
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 24x7 Repair Hub. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Booking Form Modal -->
+  <div id="bookingModal" class="modal">
+    <div class="modal-content">
+      <button class="close-modal" id="closeBookingModal">&times;</button>
+      <h2>Book Your Service</h2>
+      <form id="bookingForm">
+        <div class="form-group">
+          <label for="fullName">Full Name *</label>
+          <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required placeholder="Enter your email" />
+        </div>
+        <div class="form-group">
+          <label for="mobile">Mobile Number *</label>
+          <input type="tel" id="mobile" name="mobile" required placeholder="Enter your mobile number" />
+        </div>
+        <div class="form-group">
+          <label for="altMobile">Alternative Mobile Number</label>
+          <input type="tel" id="altMobile" name="altMobile" placeholder="Enter alternative mobile number" />
+        </div>
+        <div class="form-group">
+          <label for="serviceSelect">Select Service *</label>
+          <select id="serviceSelect" name="serviceSelect" required>
+            <option value="" disabled selected>Select a service</option>
+            <option value="TV Repair">TV Repair</option>
+            <option value="AC Repair">AC Repair</option>
+            <option value="Washing Machine Repair">Washing Machine Repair</option>
+            <option value="Refrigerator Repair">Refrigerator Repair</option>
+            <option value="Microwave Repair">Microwave Repair</option>
+            <option value="Dishwasher Repair">Dishwasher Repair</option>
+            <option value="Other">Any Other</option>
+          </select>
+        </div>
+        <div class="form-group" id="otherServiceContainer" style="display: none;">
+          <label for="otherService">Mention the Type of Service *</label>
+          <input type="text" id="otherService" name="otherService" placeholder="Specify your service" />
+        </div>
+        <div class="form-group">
+          <label for="citySelect">Select City *</label>
+          <select id="citySelect" name="citySelect" required>
+            <option value="" disabled selected>Select your city</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Bengaluru">Bengaluru</option>
+            <option value="Hyderabad">Hyderabad</option>
+            <option value="Chennai">Chennai</option>
+            <option value="Kolkata">Kolkata</option>
+            <option value="Pune">Pune</option>
+            <option value="Ahmedabad">Ahmedabad</option>
+            <option value="Jaipur">Jaipur</option>
+            <option value="Lucknow">Lucknow</option>
+            <option value="Chandigarh">Chandigarh</option>
+            <option value="Bhopal">Bhopal</option>
+            <option value="Indore">Indore</option>
+            <option value="Nagpur">Nagpur</option>
+            <option value="Surat">Surat</option>
+            <option value="Kanpur">Kanpur</option>
+            <option value="Patna">Patna</option>
+            <option value="Vadodara">Vadodara</option>
+            <option value="Visakhapatnam">Visakhapatnam</option>
+            <option value="Coimbatore">Coimbatore</option>
+            <option value="Other">Any Other</option>
+          </select>
+        </div>
+
+        <div class="form-group" id="otherCityContainer" style="display: none;">
+          <label for="otherCity">Your City Name *</label>
+          <input type="text" id="otherCity" name="otherCity" placeholder="Specify your City" />
+        </div>
+
+        <div class="form-group">
+          <label for="address">Full Address *</label>
+          <textarea id="address" name="address" required placeholder="Enter your full address"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="message">Message (Optional)</label>
+          <textarea id="message" name="message" placeholder="Additional information"></textarea>
+        </div>
+        <button type="submit" class="btn">Confirm Booking</button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- Scripts -->
+  <script src="/js/main.js"></script>
+  <script src="/js/logic.js"></script>
 </body>
+
 </html>
