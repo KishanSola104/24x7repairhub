@@ -64,7 +64,7 @@
         </li>
 
         <li role="none"><a role="menuitem" href="/contact">Contact Us</a></li>
-       
+       <li role="none"><a role="menuitem" href="/privacy-policy">Privacy Policy</a></li>
         <li role="none"><button role="menuitem" class="btn" id="bookNow-btn">Book Now</button></li>
       </ul>
 
@@ -146,8 +146,8 @@
           <input type="tel" id="mobile" name="mobile" required placeholder="Enter your mobile number" />
         </div>
         <div class="form-group">
-          <label for="altMobile">Alternative Mobile Number</label>
-          <input type="tel" id="altMobile" name="altMobile" placeholder="Enter alternative mobile number" />
+          <label for="altMobile">Alternative Mobile Number *</label>
+          <input type="tel" id="altMobile" name="altMobile" required placeholder="Enter alternative mobile number" />
         </div>
         <div class="form-group">
           <label for="serviceSelect">Select Service *</label>
@@ -166,37 +166,17 @@
           <label for="otherService">Mention the Type of Service *</label>
           <input type="text" id="otherService" name="otherService" placeholder="Specify your service" />
         </div>
+
         <div class="form-group">
-          <label for="citySelect">Select City *</label>
-          <select id="citySelect" name="citySelect" required>
-            <option value="" disabled selected>Select your city</option>
-            <option value="Mumbai">Mumbai</option>
-            <option value="Delhi">Delhi</option>
-            <option value="Bengaluru">Bengaluru</option>
-            <option value="Hyderabad">Hyderabad</option>
-            <option value="Chennai">Chennai</option>
-            <option value="Kolkata">Kolkata</option>
-            <option value="Pune">Pune</option>
-            <option value="Ahmedabad">Ahmedabad</option>
-            <option value="Jaipur">Jaipur</option>
-            <option value="Lucknow">Lucknow</option>
-            <option value="Chandigarh">Chandigarh</option>
-            <option value="Bhopal">Bhopal</option>
-            <option value="Indore">Indore</option>
-            <option value="Nagpur">Nagpur</option>
-            <option value="Surat">Surat</option>
-            <option value="Kanpur">Kanpur</option>
-            <option value="Patna">Patna</option>
-            <option value="Vadodara">Vadodara</option>
-            <option value="Visakhapatnam">Visakhapatnam</option>
-            <option value="Coimbatore">Coimbatore</option>
-            <option value="Other">Any Other</option>
+          <label for="stateSelect">Select State *</label>
+          <select id="stateSelect" name="stateSelect" required>
+           <option value="" disabled selected>Select your state</option>
           </select>
         </div>
 
-        <div class="form-group" id="otherCityContainer" style="display: none;">
-          <label for="otherCity">Your City Name *</label>
-          <input type="text" id="otherCity" name="otherCity" placeholder="Specify your City" />
+        <div class="form-group">
+          <label for="city">City *</label>
+          <input type="text" id="city" name="city" required placeholder="Enter your city" />
         </div>
 
         <div class="form-group">

@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
   const menuToggle = document.getElementById("menu-toggle");
   const mobileMenu = document.getElementById("mobileMenu");
@@ -85,9 +84,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const bookingModal = document.getElementById("bookingModal");
   const closeBookingModal = document.getElementById("closeBookingModal");
   const serviceSelect = document.getElementById("serviceSelect");
-  const otherServiceContainer = document.getElementById("otherServiceContainer");
-  const citySelect = document.getElementById("citySelect");
-  const otherCityContainer = document.getElementById("otherCityContainer");
+  const otherServiceContainer = document.getElementById(
+    "otherServiceContainer"
+  );
+  const stateDropdown = document.getElementById("stateSelect");
 
   // open modal on any button with class "btn"
   document.querySelectorAll(".btn").forEach((btn) => {
@@ -117,10 +117,42 @@ document.addEventListener("DOMContentLoaded", () => {
       serviceSelect.value === "Other" ? "block" : "none";
   });
 
-  // show/hide "Other City"
-  citySelect?.addEventListener("change", () => {
-    otherCityContainer.style.display =
-      citySelect.value === "Other" ? "block" : "none";
-  });
-});
+  const indianStates = [
+    "Andhra Pradesh",
+    "Arunachal Pradesh",
+    "Assam",
+    "Bihar",
+    "Chhattisgarh",
+    "Goa",
+    "Gujarat",
+    "Haryana",
+    "Himachal Pradesh",
+    "Jharkhand",
+    "Karnataka",
+    "Kerala",
+    "Madhya Pradesh",
+    "Maharashtra",
+    "Manipur",
+    "Meghalaya",
+    "Mizoram",
+    "Nagaland",
+    "Odisha",
+    "Punjab",
+    "Rajasthan",
+    "Sikkim",
+    "Tamil Nadu",
+    "Telangana",
+    "Tripura",
+    "Uttar Pradesh",
+    "Uttarakhand",
+    "West Bengal",
+  ];
 
+  indianStates.forEach((state)=>{
+    const stateOption = document.createElement("option");
+    stateOption.value=state;
+    stateOption.textContent=state;
+    stateDropdown.appendChild(stateOption);
+  });
+
+});
