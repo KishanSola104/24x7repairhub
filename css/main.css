@@ -359,6 +359,23 @@ body {
   transition: transform 0.3s ease;
 }
 
+/* Desktop fix */
+/* Forcefully disable overlay & mobile menu on desktop */
+@media (min-width: 1025px) {
+  .menu-overlay {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+
+  .mobile-menu {
+    display: none !important;
+    left: -100% !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+}
+
 
 /*
    Booking Form Modal  */
