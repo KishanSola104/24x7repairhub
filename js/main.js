@@ -130,3 +130,11 @@ citySelect.addEventListener("change", () => {
     otherCityContainer.style.display = "none";
   }
 });
+
+
+// Reset mobile menu state when resizing back to desktop
+window.addEventListener("resize", () => {
+  if (window.innerWidth >= 1025) {
+    closeMenu(); // reuse your existing closeMenu() function
+  }
+});
