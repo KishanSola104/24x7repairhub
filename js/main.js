@@ -1,140 +1,126 @@
-const menuToggle = document.getElementById("menu-toggle");
-const mobileMenu = document.getElementById("mobileMenu");
-let overlay = document.getElementById("menuOverlay");
-const closeBtn = document.getElementById("closeMenu"); 
 
-// create overlay if missing
-if (!overlay) {
-  overlay = document.createElement("div");
-  overlay.id = "menuOverlay";
-  overlay.className = "menu-overlay";
-  document.body.appendChild(overlay);
-}
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobileMenu");
+  let overlay = document.getElementById("menuOverlay");
+  const closeBtn = document.getElementById("closeMenu");
 
-function openMenu() {
-  mobileMenu.classList.add("active");
-  overlay.classList.add("active");
-  menuToggle.setAttribute("aria-expanded", "true");
-  document.documentElement.style.overflow = "hidden";
-}
-
-function closeMenu() {
-  mobileMenu.classList.remove("active");
-  overlay.classList.remove("active");
-  menuToggle.setAttribute("aria-expanded", "false");
-  document.documentElement.style.overflow = "";
-}
-
-// toggle button
-menuToggle.addEventListener("click", (e) => {
-  e.stopPropagation();
-  mobileMenu.classList.contains("active") ? closeMenu() : openMenu();
-});
-
-// close on overlay click
-overlay.addEventListener("click", closeMenu);
-
-// close on any nav link click
-// close on any nav link click (except Services parent)
-mobileMenu.querySelectorAll("a").forEach((a) => {
-  if (a.id !== "servicesToggle") {  // exclude Services
-    a.addEventListener("click", closeMenu);
+  // create overlay if missing
+  if (!overlay) {
+    overlay = document.createElement("div");
+    overlay.id = "menuOverlay";
+    overlay.className = "menu-overlay";
+    document.body.appendChild(overlay);
   }
-});
 
-// close on ESC key
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") closeMenu();
-});
-
-// defensive: click outside
-document.addEventListener("click", (e) => {
-  if (
-    !mobileMenu.contains(e.target) &&
-    !menuToggle.contains(e.target) &&
-    mobileMenu.classList.contains("active")
-  ) {
-    closeMenu();
+  function openMenu() {
+    mobileMenu.classList.add("active");
+    overlay.classList.add("active");
+    menuToggle.setAttribute("aria-expanded", "true");
+    document.documentElement.style.overflow = "hidden";
   }
-});
 
-// close menu on clicking "X" button
-if (closeBtn) {
-  closeBtn.addEventListener("click", closeMenu);
-}
+  function closeMenu() {
+    mobileMenu.classList.remove("active");
+    overlay.classList.remove("active");
+    menuToggle.setAttribute("aria-expanded", "false");
+    document.documentElement.style.overflow = "";
+  }
 
+  // toggle button
+  menuToggle?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    mobileMenu.classList.contains("active") ? closeMenu() : openMenu();
+  });
 
-// Services submenu toggle
-// Services submenu toggle
-const servicesToggle = document.getElementById("servicesToggle");
-const servicesSubmenu = document.getElementById("servicesSubmenu");
+  // close on overlay click
+  overlay?.addEventListener("click", closeMenu);
 
-if (servicesToggle && servicesSubmenu) {
-  servicesToggle.addEventListener("click", (e) => {
-    e.preventDefault(); // prevent page jump
+  // close on nav link click (except Services parent)
+  mobileMenu?.querySelectorAll("a").forEach((a) => {
+    if (a.id !== "servicesToggle") {
+      a.addEventListener("click", closeMenu);
+    }
+  });
+
+  // close on ESC key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+  });
+
+  // defensive: click outside menu
+  document.addEventListener("click", (e) => {
+    if (
+      mobileMenu?.classList.contains("active") &&
+      !mobileMenu.contains(e.target) &&
+      !menuToggle.contains(e.target)
+    ) {
+      closeMenu();
+    }
+  });
+
+  // close menu on clicking "X"
+  closeBtn?.addEventListener("click", closeMenu);
+
+  // Services submenu toggle
+  const servicesToggle = document.getElementById("servicesToggle");
+  const servicesSubmenu = document.getElementById("servicesSubmenu");
+
+  servicesToggle?.addEventListener("click", (e) => {
+    e.preventDefault();
     servicesSubmenu.classList.toggle("active");
     servicesToggle.parentElement.classList.toggle("active");
   });
-}
 
-// Confirm Booking
-const bookingModal = document.getElementById("bookingModal");
-const closeBookingModal = document.getElementById("closeBookingModal");
-const serviceSelect = document.getElementById("serviceSelect");
-const otherServiceContainer = document.getElementById("otherServiceContainer");
-const citySelect = document.getElementById("citySelect");
-const otherCityContainer = document.getElementById("otherCityContainer");
+  // Reset mobile menu when resizing back to desktop
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 1025) {
+      closeMenu();
+      servicesSubmenu?.classList.remove("active");
+      servicesToggle?.parentElement.classList.remove("active");
+    }
+  });
 
-// Open modal on any button with class "btn"
-document.querySelectorAll(".btn").forEach(btn => {
-  btn.addEventListener("click", (e) => {
-    e.preventDefault();
-    bookingModal.classList.add("active");
-    document.documentElement.style.overflow = "hidden"; 
+  // --------- Booking Modal ----------
+  const bookingModal = document.getElementById("bookingModal");
+  const closeBookingModal = document.getElementById("closeBookingModal");
+  const serviceSelect = document.getElementById("serviceSelect");
+  const otherServiceContainer = document.getElementById("otherServiceContainer");
+  const citySelect = document.getElementById("citySelect");
+  const otherCityContainer = document.getElementById("otherCityContainer");
+
+  // open modal on any button with class "btn"
+  document.querySelectorAll(".btn").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      bookingModal?.classList.add("active");
+      document.documentElement.style.overflow = "hidden";
+    });
+  });
+
+  function closeModal() {
+    bookingModal?.classList.add("closing");
+    bookingModal?.classList.remove("active");
+    document.documentElement.style.overflow = "";
+    setTimeout(() => bookingModal?.classList.remove("closing"), 400);
+  }
+
+  // close modal actions
+  closeBookingModal?.addEventListener("click", closeModal);
+  bookingModal?.addEventListener("click", (e) => {
+    if (e.target === bookingModal) closeModal();
+  });
+
+  // show/hide "Other Service"
+  serviceSelect?.addEventListener("change", () => {
+    otherServiceContainer.style.display =
+      serviceSelect.value === "Other" ? "block" : "none";
+  });
+
+  // show/hide "Other City"
+  citySelect?.addEventListener("change", () => {
+    otherCityContainer.style.display =
+      citySelect.value === "Other" ? "block" : "none";
   });
 });
 
-// Close modal function
-function closeModal() {
-  bookingModal.classList.add("closing");
-  bookingModal.classList.remove("active");
-  document.documentElement.style.overflow = "";
-
-  setTimeout(() => {
-    bookingModal.classList.remove("closing");
-  }, 400); // match transition duration
-}
-
-// Close modal on X click
-closeBookingModal.addEventListener("click", closeModal);
-
-// Close modal on clicking outside content
-bookingModal.addEventListener("click", (e) => {
-  if (e.target === bookingModal) closeModal();
-});
-
-// Show/hide "Other Service" field
-serviceSelect.addEventListener("change", () => {
-  if (serviceSelect.value === "Other") {
-    otherServiceContainer.style.display = "block";
-  } else {
-    otherServiceContainer.style.display = "none";
-  }
-});
-
-// Show/hide "Other Service" field
-citySelect.addEventListener("change", () => {
-  if (citySelect.value === "Other") {
-    otherCityContainer.style.display = "block";
-  } else {
-    otherCityContainer.style.display = "none";
-  }
-});
-
-
-// Reset mobile menu state when resizing back to desktop
-window.addEventListener("resize", () => {
-  if (window.innerWidth >= 1025) {
-    closeMenu(); // reuse your existing closeMenu() function
-  }
-});
