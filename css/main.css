@@ -544,4 +544,17 @@ body {
 }
 
 
+@media (min-width: 1025px) {
+  .mobile-menu,
+  .mobile-menu.active,
+  .menu-overlay,
+  .menu-overlay.active {
+    display: none !important;
+    left: -100% !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+}
+
+
 /* Main section */
