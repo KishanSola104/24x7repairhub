@@ -24,19 +24,20 @@
 
 <body>
 
+  <!-- Header Section -->
   <!-- ============ HEADER ============ -->
   <header class="site-header">
-    <!-- Sub Navbar (half-oval) -->
-    <div class="sub-navbar container" role="region" aria-label="Contact info">
-      <address class="contact-left">
+    <!-- Sub Navbar -->
+    <div class="sub-navbar container" role="region" aria-label="Contact Info">
+      <div class="contact-left">
         <i class="fa-solid fa-phone" aria-hidden="true"></i>
-        <a href="tel:+9196622347518">+91 93265 00190</a>
-      </address>
+        <a href="tel:+919326500190" aria-label="Call 24x7 Repair Hub">+91 93265 00190</a>
+      </div>
 
-      <address class="contact-right">
+      <div class="contact-right">
         <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-        <a href="mailto:Info@24x7repairhub.in">Info@24x7repairhub.in</a>
-      </address>
+        <a href="mailto:Info@24x7repairhub.in" aria-label="Email 24x7 Repair Hub">Info@24x7repairhub.in</a>
+      </div>
     </div>
 
     <!-- Main Navbar -->
@@ -52,63 +53,68 @@
         <li role="none"><a role="menuitem" href="/about">About Us</a></li>
 
         <!-- Dropdown parent -->
-        <li role="none" class="dropdown">
-          <a role="menuitem" href="#" aria-haspopup="true" aria-expanded="false">Services</a>
-          <ul class="dropdown-menu" role="menu">
-            <li role="none"><a role="menuitem" href="#">TV Repair</a></li>
-            <li role="none"><a role="menuitem" href="#">AC Repair</a></li>
-            <li role="none"><a role="menuitem" href="#">Washing Machine Repair</a></li>
-            <li role="none"><a role="menuitem" href="#">Refrigerator Repair</a></li>
-            <li role="none"><a role="menuitem" href="#">Microwave Repair</a></li>
-            <li role="none"><a role="menuitem" href="#">Dishwasher Repair</a></li>
+        <li class="dropdown">
+          <button aria-haspopup="true" aria-expanded="false" class="dropdown-toggle" id="servicesBtn">
+            Services
+          </button>
+          <ul class="dropdown-menu" role="menu" aria-label="Services submenu">
+            <li role="none"><a role="menuitem" href="/services/tv-repair">TV Repair</a></li>
+            <li role="none"><a role="menuitem" href="/services/ac-repair">AC Repair</a></li>
+            <li role="none"><a role="menuitem" href="/services/washing-machine-repair">Washing Machine Repair</a></li>
+            <li role="none"><a role="menuitem" href="/services/refrigerator-repair">Refrigerator Repair</a></li>
+            <li role="none"><a role="menuitem" href="/services/microwave-repair">Microwave Repair</a></li>
+            <li role="none"><a role="menuitem" href="/services/dishwasher-repair">Dishwasher Repair</a></li>
           </ul>
         </li>
 
+
         <li role="none"><a role="menuitem" href="/contact">Contact Us</a></li>
         <li role="none"><a role="menuitem" href="/privacy-policy">Privacy Policy</a></li>
-        <li role="none"><button role="menuitem" class="btn" id="bookNow-btn">Book Now</button></li>
+        <li role="none"><a role="menuitem" href="/book" class="btn">Book Now</a></li>
       </ul>
-
 
       <div class="nav-controls">
         <!-- Mobile toggle -->
         <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false"
-          aria-controls="nav-links">
+          aria-controls="mobileMenu">
           <i class="fa-solid fa-bars"></i>
         </button>
       </div>
+
       <!-- Mobile Menu -->
-      <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
         <div class="mobile-menu-header">
           <div class="mobile-logo">
-            <img src="/images/logos/Logo2.png" alt="Logo" />
+            <img src="/images/logos/Logo2.png" alt="24x7 Repair Hub Logo" />
           </div>
-          <button class="close-btn" id="closeMenu">&times;</button>
+          <button class="close-btn" id="closeMenu" aria-label="Close Menu">&times;</button>
         </div>
 
-        <a href="#">Home</a>
-        <a href="#">About Us</a>
+        <a href="/">Home</a>
+        <a href="/about">About Us</a>
 
-        <!-- Services with clickable submenu -->
+        <!-- Services submenu -->
         <div class="menu-item">
-          <a href="#" id="servicesToggle">Services <span class="arrow"><i
-                class="fa-solid fa-chevron-down"></i></span></a>
-          <div class="submenu" id="servicesSubmenu">
-            <a href="#">TV Repair</a>
-            <a href="#">AC Repair</a>
-            <a href="#">Washing Machine Repair</a>
-            <a href="#">Refrigerator Repair</a>
-            <a href="#">Microwave Repair</a>
-            <a href="#">Dishwasher Repair</a>
+          <button id="servicesToggle" aria-expanded="false" aria-controls="servicesSubmenu">
+            Services <span class="arrow"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="submenu" id="servicesSubmenu" hidden>
+            <a href="/services/tv-repair">TV Repair</a>
+            <a href="/services/ac-repair">AC Repair</a>
+            <a href="/services/washing-machine-repair">Washing Machine Repair</a>
+            <a href="/services/refrigerator-repair">Refrigerator Repair</a>
+            <a href="/services/microwave-repair">Microwave Repair</a>
+            <a href="/services/dishwasher-repair">Dishwasher Repair</a>
           </div>
         </div>
 
-        <a href="#">Contact Us</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#" class="btn" id="bookNow-btn">Book Now</a>
+        <a href="/contact">Contact Us</a>
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/book" class="btn">Book Now</a>
       </div>
     </nav>
   </header>
+
 
   <!-- ============ MAIN CONTENT ============ -->
   <main class="container">
