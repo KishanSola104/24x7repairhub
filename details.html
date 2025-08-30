@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
-
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
+    <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta description="24x7 Repair Hub - Your Trusted Partner for Home Appliance Repairs" />
   <meta name="description"
     content="24x7 Repair Hub offers expert repair services for all home appliances including AC, TV, Fridge, Washing Machine and more. Available anytime, anywhere." />
   <meta name="keywords"
@@ -13,7 +13,7 @@
   <title>24x7 Repair Hub - Home Appliances Repair Center</title>
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="/css/main.css" />
+ <link rel="stylesheet" href="/css/details.css">
   <link rel="stylesheet" href="/css/responsive.css" />
 
   <!-- Font Awesome -->
@@ -21,9 +21,8 @@
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-
 <body>
-
+    
   <!-- Header Section -->
   <!-- ============ HEADER ============ -->
   <header class="site-header">
@@ -49,8 +48,8 @@
       </div>
 
       <ul class="nav-links" id="nav-links" role="menubar" aria-label="Primary">
-        <li role="none"><a role="menuitem" href="#home" class="active">Home</a></li>
-        <li role="none"><a role="menuitem" href="#about">About Us</a></li>
+        <li role="none"><a role="menuitem" href="/" class="active">Home</a></li>
+        <li role="none"><a role="menuitem" href="/about">About Us</a></li>
 
         <!-- Dropdown parent -->
         <li class="dropdown">
@@ -121,84 +120,8 @@
   <!-- ============ MAIN CONTENT ============ -->
   <main class="container">
 
-<!-- ============ HOME SECTION ============ -->
-<section class="home-section" id="home">
-  <div class="home-container">
+    <!-- Here will be the main section of the details  -->
     
-    <!-- Logo / Image -->
-    <div class="home-image">
-      <img id="homeLogo"
-           src="/images/logos/defaultLogo.png" 
-           alt="24x7 Repair Hub - Home Appliances Repair Service" 
-           class="logo-img" 
-           loading="lazy" 
-           decoding="async" />
-    </div>
-
-    <!-- Text Content -->
-    <div class="home-content">
-      <h1 id="homeTitle" class="home-title">24x7 Repair Center</h1>
-      <p id="homeSubtitle" class="home-subtitle">
-        Call us now to book repair service of your appliance at home. <br>
-        Get single visit solution on the same day of booking by our expert and certified technicians.
-      </p>
-
-      <!-- Buttons -->
-      <div class="home-buttons">
-        <a id="callBtn"
-           href="tel:+919326500190" 
-           class="call-btn btn-primary" 
-           aria-label="Call 24x7 Repair Hub">
-          <i class="fa-solid fa-phone"></i> Call Us
-        </a>
-
-        <a id="whatsappBtn"
-           href="https://wa.me/919326500190" 
-           target="_blank" 
-           rel="noopener" 
-           class="wa-btn btn-whatsapp" 
-           aria-label="Chat with us on WhatsApp">
-          <i class="fa-brands fa-whatsapp"></i> WhatsApp
-        </a>
-
-        <a id="bookBtn"
-           href="#booking-form" 
-           class="btn btn-secondary book-btn" 
-           aria-label="Book repair service now">
-          <i class="fa-solid fa-clipboard-list"></i> Book Now
-        </a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-
-    <!-- About US Section -->
-    <section class="about-us">
-
-    </section>
-
-    <!-- Experience Section -->
-    <section class="experience">
-
-    </section>
-
-    <!-- Expertise Section -->
-    <section class="expertise">
-
-    </section>
-
-    <!-- testimonials -->
-    <section class="testimonials">
-
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="FAQ">
-
-    </section>
   </main>
 
   <!-- ============ FOOTER ============ -->
@@ -311,7 +234,14 @@
         <div class="form-group">
           <label for="serviceSelect">Select Service *</label>
           <select id="serviceSelect" name="serviceSelect" required>
-           
+            <option value="" disabled selected>Select a service</option>
+            <option value="TV Repair">TV Repair</option>
+            <option value="AC Repair">AC Repair</option>
+            <option value="Washing Machine Repair">Washing Machine Repair</option>
+            <option value="Refrigerator Repair">Refrigerator Repair</option>
+            <option value="Microwave Repair">Microwave Repair</option>
+            <option value="Dishwasher Repair">Dishwasher Repair</option>
+            <option value="Other">Any Other</option>
           </select>
         </div>
         <div class="form-group" id="otherServiceContainer" style="display: none;">
@@ -322,6 +252,7 @@
         <div class="form-group">
           <label for="stateSelect">Select State *</label>
           <select id="stateSelect" name="stateSelect" required>
+            <option value="" disabled selected>Select your state</option>
           </select>
         </div>
 
@@ -354,5 +285,4 @@
   <script src="/js/main.js"></script>
   <script src="/js/logic.js"></script>
 </body>
-
 </html>

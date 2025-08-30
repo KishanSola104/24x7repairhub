@@ -94,6 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
       bookingModal?.classList.add("active");
+      document.getElementById("fullName").focus();
       document.documentElement.style.overflow = "hidden";
     });
   });
@@ -111,6 +112,21 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target === bookingModal) closeModal();
   });
 
+  const servicePlaceholder = document.createElement("option");
+  servicePlaceholder.value="";
+  servicePlaceholder.textContent="Select A Service";
+  serviceSelect.appendChild(servicePlaceholder);
+  servicePlaceholder.selected=true;
+  servicePlaceholder.disabled=true;
+
+  const services = ["TV Repair","AC Repair","Washing Machine Repair","Refrigerator Repair","Microwave Repair","Dishwasher Repair","Other"];
+
+  services.forEach((service)=>{
+    const serviceOption = document.createElement("option");
+    serviceOption.value = service;
+    serviceOption.textContent = service;
+    serviceSelect.appendChild(serviceOption);
+  });
   // show/hide "Other Service"
   serviceSelect?.addEventListener("change", () => {
     otherServiceContainer.style.display =
@@ -148,11 +164,20 @@ document.addEventListener("DOMContentLoaded", () => {
     "West Bengal",
   ];
 
-  indianStates.forEach((state)=>{
+  stateSelect.innerHTML = "";
+
+  // Add placeholder
+  const placeholder = document.createElement("option");
+  placeholder.value = "";
+  placeholder.textContent = "Select your state";
+  placeholder.disabled = true;
+  placeholder.selected = true;
+  stateSelect.appendChild(placeholder);
+
+  indianStates.forEach((state) => {
     const stateOption = document.createElement("option");
-    stateOption.value=state;
-    stateOption.textContent=state;
+    stateOption.value = state;
+    stateOption.textContent = state;
     stateDropdown.appendChild(stateOption);
   });
-
 });

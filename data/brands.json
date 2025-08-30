@@ -1,0 +1,24 @@
+{
+  "sony": {
+    "logo": "/images/brands_logos/sony.png",
+    "title": "24x7 SONY TV Repair Center"
+  },
+  "acer": {
+    "logo": "/images/brands_logos/acer.png",
+    "title": "24x7 ACER TV Repair Center"
+  },
+  "aiwa": {
+    "logo": "/images/brands_logos/aiwa.png",
+    "title": "24x7 AIWA TV Repair Center"
+  },
+  "akai": {
+    "logo": "/images/brands_logos/akai.png",
+    "title": "24x7 AKAI TV Repair Center"
+  },
+  "aoc": {
+    "logo": "/images/brands_logos/aoc.png",
+    "title": "24x7 AOC TV Repair Center"
+  }
+
+  
+}
