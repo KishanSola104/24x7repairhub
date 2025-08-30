@@ -1,24 +1,174 @@
 {
+  "acer": {
+    "logo": "/images/brand_logos/acer.png",
+    "title": "24x7 ACER TV Repair Center"
+  },
+  "aiwa": {
+    "logo": "/images/brand_logos/aiwa.png",
+    "title": "24x7 AIWA TV Repair Center"
+  },
+  "akai": {
+    "logo": "/images/brand_logos/akai.png",
+    "title": "24x7 AKAI TV Repair Center"
+  },
+  "aoc": {
+    "logo": "/images/brand_logos/aoc.png",
+    "title": "24x7 AOC TV Repair Center"
+  },
+  "blaupunkt": {
+    "logo": "/images/brand_logos/blaupunkt.png",
+    "title": "24x7 BLAUPUNKT TV Repair Center"
+  },
+  "bpl": {
+    "logo": "/images/brand_logos/bpl.png",
+    "title": "24x7 BPL TV Repair Center"
+  },
+  "chroma": {
+    "logo": "/images/brand_logos/chroma.png",
+    "title": "24x7 CHROMA TV Repair Center"
+  },
+  "ifallcon": {
+    "logo": "/images/brand_logos/ifallcon.png",
+    "title": "24x7 IFALLCON TV Repair Center"
+  },
+  "haier": {
+    "logo": "/images/brand_logos/haier.png",
+    "title": "24x7 HAIER TV Repair Center"
+  },
+  "hisense": {
+    "logo": "/images/brand_logos/hisense.png",
+    "title": "24x7 HISENSE TV Repair Center"
+  },
+  "hitachi": {
+    "logo": "/images/brand_logos/hitachi.png",
+    "title": "24x7 HITACHI TV Repair Center"
+  },
+  "impex": {
+    "logo": "/images/brand_logos/impex.png",
+    "title": "24x7 IMPEX TV Repair Center"
+  },
+  "intex": {
+    "logo": "/images/brand_logos/intex.png",
+    "title": "24x7 INTEX TV Repair Center"
+  },
+  "jvc": {
+    "logo": "/images/brand_logos/jvc.png",
+    "title": "24x7 JVC TV Repair Center"
+  },
+  "kodak": {
+    "logo": "/images/brand_logos/kodak.png",
+    "title": "24x7 KODAK TV Repair Center"
+  },
+  "koryo": {
+    "logo": "/images/brand_logos/koryo.png",
+    "title": "24x7 KORYO TV Repair Center"
+  },
+  "lg": {
+    "logo": "/images/brand_logos/lg.png",
+    "title": "24x7 LG TV Repair Center"
+  },
+  "lloyd": {
+    "logo": "/images/brand_logos/lloyd.png",
+    "title": "24x7 LLOYD TV Repair Center"
+  },
+  "mi": {
+    "logo": "/images/brand_logos/mi.png",
+    "title": "24x7 MI TV Repair Center"
+  },
+  "micromax": {
+    "logo": "/images/brand_logos/micromax.png",
+    "title": "24x7 MICROMAX TV Repair Center"
+  },
+  "mitashi": {
+    "logo": "/images/brand_logos/mitashi.png",
+    "title": "24x7 MITASHI TV Repair Center"
+  },
+  "nokia": {
+    "logo": "/images/brand_logos/nokia.png",
+    "title": "24x7 NOKIA TV Repair Center"
+  },
+  "oneplus": {
+    "logo": "/images/brand_logos/oneplus.png",
+    "title": "24x7 ONEPLUS TV Repair Center"
+  },
+  "onida": {
+    "logo": "/images/brand_logos/onida.png",
+    "title": "24x7 ONIDA TV Repair Center"
+  },
+  "oscar": {
+    "logo": "/images/brand_logos/oscar.png",
+    "title": "24x7 OSCAR TV Repair Center"
+  },
+  "panasonic": {
+    "logo": "/images/brand_logos/panasonic.png",
+    "title": "24x7 PANASONIC TV Repair Center"
+  },
+  "philips": {
+    "logo": "/images/brand_logos/philips.png",
+    "title": "24x7 PHILIPS TV Repair Center"
+  },
+  "polaroid": {
+    "logo": "/images/brand_logos/polaroid.png",
+    "title": "24x7 POLAROID TV Repair Center"
+  },
+  "rca": {
+    "logo": "/images/brand_logos/rca.png",
+    "title": "24x7 RCA TV Repair Center"
+  },
+  "realme": {
+    "logo": "/images/brand_logos/realme.png",
+    "title": "24x7 REALME TV Repair Center"
+  },
+  "sansui": {
+    "logo": "/images/brand_logos/sansui.png",
+    "title": "24x7 SANSUI TV Repair Center"
+  },
+  "sanyo": {
+    "logo": "/images/brand_logos/sanyo.png",
+    "title": "24x7 SANYO TV Repair Center"
+  },
+  "skyworth": {
+    "logo": "/images/brand_logos/skyworth.png",
+    "title": "24x7 SKYWORTH TV Repair Center"
+  },
   "sony": {
     "logo": "/images/brand_logos/sony.png",
     "title": "24x7 SONY TV Repair Center"
   },
-  "acer": {
-    "logo": "/images/brands_logos/acer.png",
-    "title": "24x7 ACER TV Repair Center"
+  "samsung": {
+    "logo": "/images/brand_logos/samsung.png",
+    "title": "24x7 SAMSUNG TV Repair Center"
   },
-  "aiwa": {
-    "logo": "/images/brands_logos/aiwa.png",
-    "title": "24x7 AIWA TV Repair Center"
+  "t series": {
+    "logo": "/images/brand_logos/t series.png",
+    "title": "24x7 T SERIES TV Repair Center"
   },
-  "akai": {
-    "logo": "/images/brands_logos/akai.png",
-    "title": "24x7 AKAI TV Repair Center"
+  "tcl": {
+    "logo": "/images/brand_logos/tcl.png",
+    "title": "24x7 TCL TV Repair Center"
   },
-  "aoc": {
-    "logo": "/images/brands_logos/aoc.png",
-    "title": "24x7 AOC TV Repair Center"
+  "thomson": {
+    "logo": "/images/brand_logos/thomson.png",
+    "title": "24x7 THOMSON TV Repair Center"
+  },
+  "toshiba": {
+    "logo": "/images/brand_logos/toshiba.png",
+    "title": "24x7 TOSHIBA TV Repair Center"
+  },
+  "vu": {
+    "logo": "/images/brand_logos/vu.png",
+    "title": "24x7 VU TV Repair Center"
+  },
+  "videocon": {
+    "logo": "/images/brand_logos/videocon.png",
+    "title": "24x7 VIDEOCON TV Repair Center"
+  },
+  "vise": {
+    "logo": "/images/brand_logos/vise.png",
+    "title": "24x7 VISE TV Repair Center"
+  },
+  "vizio": {
+    "logo": "/images/brand_logos/vizio.png",
+    "title": "24x7 VIZIO TV Repair Center"
   }
-
-  
 }
