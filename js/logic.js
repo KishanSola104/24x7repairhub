@@ -1,18 +1,24 @@
-// 1. Extract brand from URL (either /brand or query string like h1=sony...)
+// 1. Extract brand from URL (brand can be anywhere)
 function getBrandFromUrl() {
-  const pathParts = window.location.pathname.split("/");
-  let brand = pathParts[1]?.toLowerCase(); // e.g. /sony → sony
+  const url = window.location.href.toLowerCase();
 
-  if (!brand) {
-    // Check query param (like ?h1=sony led tv repair)
-    const params = new URLSearchParams(window.location.search);
-    const h1Param = params.get("h1");
-    if (h1Param) {
-      // take first word from "sony led tv repair"
-      brand = h1Param.split(" ")[0].toLowerCase();
+  // List of brands
+  const brandList = [
+    "acer","aiwa","akai","aoc","blaupunkt","bpl","chroma","ifallcon","haier","hisense",
+    "hitachi","impex","intex","jvc","kodak","koryo","lg","lloyd","mi","micromax","mitashi",
+    "nokia","oneplus","onida","oscar","panasonic","philips","polaroid","rca","realme",
+    "sansui","sanyo","skyworth","sony","samsung","t series","tcl","thomson","toshiba",
+    "vu","videocon","vise","vizio"
+  ];
+
+  // Try to find brand name anywhere in URL
+  for (const brand of brandList) {
+    if (url.includes(brand.toLowerCase())) {
+      return brand.toLowerCase();
     }
   }
-  return brand;
+
+  return null; // no brand found
 }
 
 // 2. Load JSON and update page
@@ -22,12 +28,12 @@ async function updateBrandContent() {
 
   let brand = getBrandFromUrl();
 
-  //  If brand detected from URL → save it
   if (brand) {
+    //  If brand is detected in URL → save in localStorage
     localStorage.setItem("selectedBrand", brand);
   } else {
-    //  Else → try to load previously saved brand
-    brand = localStorage.getItem("selectedBrand");
+    //  If no brand in URL → clear localStorage
+    localStorage.removeItem("selectedBrand");
   }
 
   try {
@@ -35,11 +41,11 @@ async function updateBrandContent() {
     const brands = await response.json();
 
     if (brand && brands[brand]) {
-      // Brand found → show brand logo and title
+      //  Show brand logo and header
       homeLogo.src = brands[brand].logo;
       homeTitle.textContent = brands[brand].title;
     } else {
-      // No brand → fallback to default
+      //  Fallback → Default logo + title
       homeLogo.src = "/images/logos/defaultLogo.png";
       homeTitle.textContent = "24x7 Repair Center";
     }
@@ -53,6 +59,3 @@ async function updateBrandContent() {
 
 // Run after DOM is ready
 document.addEventListener("DOMContentLoaded", updateBrandContent);
-
-// --------- Mobile Menu ----------
-// (your mobile menu JS will follow here…)
