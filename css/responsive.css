@@ -1,4 +1,6 @@
-/*Header*/
+/* =========================
+   HEADER RESPONSIVENESS
+   ========================= */
 @media (max-width: 1024px) {
   .nav-links {
     display: none;
@@ -7,62 +9,81 @@
     display: inline-flex;
   }
 }
+
 @media (min-width: 1025px) {
   .menu-toggle,
   .mobile-menu,
   .menu-overlay {
-    display: none !important;
+    display: none;
   }
 }
 
-/* Book Now Form */
+/* =========================
+   BOOK NOW FORM MODAL
+   ========================= */
 @media (max-height: 600px) {
   .modal-content {
     max-height: 95vh;
-    padding: 25px 20px;
+    padding: 1.5rem 1.25rem; /* 25px 20px */
   }
 }
 
 @media (max-width: 480px) {
   .modal-content {
     width: 95%;
-    padding: 20px 18px;
+    padding: 1.25rem 1.125rem; /* 20px 18px */
   }
+
   .close-modal {
-    font-size: 24px;
-    top: 10px;
-    right: 10px;
+    font-size: 1.5rem; /* 24px */
+    top: 0.625rem; /* 10px */
+    right: 0.625rem; /* 10px */
   }
+
   .form-group input,
   .form-group select,
   .form-group textarea {
-    font-size: 14px;
-    padding: 10px 12px;
+    font-size: 0.875rem; /* 14px */
+    padding: 0.625rem 0.75rem; /* 10px 12px */
   }
+
   .modal .btn {
-    font-size: 14px;
-    padding: 12px 14px;
+    font-size: 0.875rem;
+    padding: 0.75rem 0.875rem; /* 12px 14px */
   }
 }
 
-/* footer */
+/* ================================
+   Responsive
+================================ */
 @media (max-width: 768px) {
+  footer .contact-us {
+    padding: 0 1rem;
+  }
+
   .footer-links {
     grid-template-columns: 1fr;
     text-align: center;
   }
+
   .footer-links .social-links ul li {
     justify-content: center;
   }
+
   footer .contact-us {
     margin-bottom: 2rem;
   }
 }
 
-/* Main Section */
+/* =========================
+   MAIN SECTIONS
+   ========================= */
 
-/* Home Section */
-@media (max-width: 900px) {
+/* HOME SECTION */
+/* ================================
+   Responsive
+================================ */
+@media (max-width: 992px) {
   .home-container {
     grid-template-columns: 1fr;
     text-align: center;
@@ -72,44 +93,38 @@
     text-align: center;
   }
 
+  .home-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .home-buttons {
     justify-content: center;
   }
 }
 
-@media (max-width: 500px) {
-  .home-title {
-    font-size: 2rem;
-  }
 
-  .home-subtitle {
-    font-size: 1rem;
-  }
-
-  .call-btn,
-  .wa-btn,
-  .book-btn {
-    flex: 1 1 100%;
-    justify-content: center;
-  }
-}
-
-/* About */
-/* Responsive */
+/* ================================
+   Responsive
+================================ */
 @media (max-width: 992px) {
   .about-us-container {
-    flex-direction: column-reverse;
+    flex-direction: column;
     text-align: center;
   }
 
-  .about-us-left,
-  .about-us-right {
-    width: 100%;
+  .about-us-left {
+    text-align: center;
   }
 
-  .about-us-specialties {
-    justify-content: center;
+  .about-us-features {
+    text-align: left;
+    display: inline-block;
   }
 }
 
-/* Expertise */
+
+
+/* =========================
+   EXPERTISE (Add styles later)
+   ========================= */
