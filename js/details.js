@@ -15,27 +15,26 @@ document.addEventListener("DOMContentLoaded", () => {
     descEl.textContent = service.description;
   };
 
+  // If no serviceId, do nothing
+  if (!serviceId) {
+    titleEl.textContent = "Service not selected";
+    descEl.textContent = "Please select a service from the menu to see details.";
+    return;
+  }
+
   // Load JSON
   fetch("data/services.json") // use relative path
     .then(res => res.json())
     .then(data => {
-      let service;
+      const service = data.services.find(s => s.id === serviceId);
 
-      if (serviceId) {
-        service = data.services.find(s => s.id === serviceId);
+      if (service) {
+        updateService(service);
+      } else {
+        // Service not found
+        titleEl.textContent = "Service Not Found";
+        descEl.textContent = "The service you are looking for does not exist.";
       }
-
-      if (!service) {
-        // If no serviceId or not found, show default/fallback
-        service = data.services[0]; // first service as default
-        if (!serviceId) {
-          console.warn("No service selected, showing default service.");
-        } else {
-          console.warn("Service not found, showing default service.");
-        }
-      }
-
-      updateService(service);
     })
     .catch(err => {
       console.error("Error loading services.json:", err);
