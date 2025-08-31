@@ -35,11 +35,17 @@ async function updateBrandContent() {
 
   let brand = getBrandFromUrl();
 
+  // ✅ If brand detected in URL → save it
   if (brand) {
-    // ✅ Save new brand if found in URL
     localStorage.setItem("selectedBrand", brand);
   } else {
-    // ✅ Otherwise fallback to previously saved brand
+    // ✅ If NO brand in URL (plain homepage)
+    // show default and clear any previous brand
+    localStorage.removeItem("selectedBrand");
+  }
+
+  // ✅ If still no brand (like navigating inside site), fallback to saved one
+  if (!brand) {
     brand = localStorage.getItem("selectedBrand");
   }
 
@@ -48,17 +54,17 @@ async function updateBrandContent() {
     const brands = await response.json();
 
     if (brand && brands[brand]) {
-      // ✅ Show brand logo and header
+      // Show brand logo and header
       homeLogo.src = brands[brand].logo;
       homeTitle.textContent = brands[brand].title;
     } else {
-      // ✅ Fallback → Default logo + title
+      // Fallback → Default logo + title
       homeLogo.src = "/images/logos/defaultLogo.png";
       homeTitle.textContent = "24x7 Repair Center";
     }
   } catch (err) {
     console.error("Error loading brands.json", err);
-    // fallback just in case
+    // Fallback just in case
     homeLogo.src = "/images/logos/defaultLogo.png";
     homeTitle.textContent = "24x7 Repair Center";
   }
