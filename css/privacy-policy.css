@@ -657,13 +657,44 @@ footer .contact-us button:focus {
 }
 
 /* Sub Footer */
+/* =========================
+   SUB FOOTER
+   ========================= */
 .sub-footer {
   text-align: center;
-  padding: 1rem 0 0;
+  padding: 1rem 0;
   font-size: 0.9rem;
   color: #777;
   margin-top: 2rem;
   border-top: 1px solid #eee;
+  
+}
+
+.sub-footer a {
+  color: #1e90ff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.sub-footer a:hover {
+  color: #e65c00;
+}
+
+/* =========================
+   DISCLAIMER SECTION
+   ========================= */
+.sub-footer .disclaimer {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 15px;
+  padding-top: 10px;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.sub-footer .disclaimer p {
+  margin: 0;
+  line-height: 1.5;
 }
 
 /* Main section */
