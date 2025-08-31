@@ -1,8 +1,18 @@
-// 1. Extract brand from URL (brand can be anywhere)
+// 1. Extract brand from URL 
 function getBrandFromUrl() {
-  const url = window.location.href.toLowerCase();
+  const pathParts = window.location.pathname.split("/");
+  let candidate = pathParts[1]?.toLowerCase();
 
-  // List of brands
+  // If nothing in path, check ?h1 param
+  if (!candidate) {
+    const params = new URLSearchParams(window.location.search);
+    const h1Param = params.get("h1");
+    if (h1Param) {
+      candidate = h1Param.split(" ")[0].toLowerCase(); 
+    }
+  }
+
+  // Validate against allowed brand list
   const brandList = [
     "acer","aiwa","akai","aoc","blaupunkt","bpl","chroma","ifallcon","haier","hisense",
     "hitachi","impex","intex","jvc","kodak","koryo","lg","lloyd","mi","micromax","mitashi",
@@ -11,14 +21,11 @@ function getBrandFromUrl() {
     "vu","videocon","vise","vizio"
   ];
 
-  // Try to find brand name anywhere in URL
-  for (const brand of brandList) {
-    if (url.includes(brand.toLowerCase())) {
-      return brand.toLowerCase();
-    }
+  if (candidate && brandList.includes(candidate)) {
+    return candidate;
   }
 
-  return null; // no brand found
+  return null; 
 }
 
 // 2. Load JSON and update page
@@ -29,10 +36,10 @@ async function updateBrandContent() {
   let brand = getBrandFromUrl();
 
   if (brand) {
-    //  If brand is detected in URL → save in localStorage
+    //  Brand detected from URL → save in localStorage
     localStorage.setItem("selectedBrand", brand);
   } else {
-    //  If no brand in URL → clear localStorage
+    //  No brand in URL → clear localStorage
     localStorage.removeItem("selectedBrand");
   }
 
@@ -41,7 +48,7 @@ async function updateBrandContent() {
     const brands = await response.json();
 
     if (brand && brands[brand]) {
-      //  Show brand logo and header
+      // Show brand logo and header
       homeLogo.src = brands[brand].logo;
       homeTitle.textContent = brands[brand].title;
     } else {
@@ -51,7 +58,7 @@ async function updateBrandContent() {
     }
   } catch (err) {
     console.error("Error loading brands.json", err);
-    // fallback just in case
+    // Fallback just in case
     homeLogo.src = "/images/logos/defaultLogo.png";
     homeTitle.textContent = "24x7 Repair Center";
   }
