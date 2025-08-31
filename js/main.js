@@ -287,6 +287,21 @@ const observer = new IntersectionObserver(entries => {
 
 expertiseItems.forEach(item => observer.observe(item));
 
+/* FAQ */
+document.querySelectorAll(".faq-question").forEach((button) => {
+  button.addEventListener("click", () => {
+    const faqItem = button.parentElement;
 
+    // Close other open items
+    document.querySelectorAll(".faq-item").forEach((item) => {
+      if (item !== faqItem) {
+        item.classList.remove("active");
+      }
+    });
+
+    // Toggle current item
+    faqItem.classList.toggle("active");
+  });
+});
 
 });

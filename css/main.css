@@ -523,8 +523,8 @@ body {
 
 /* Base Footer */
 footer {
-  background: var(--dark, #111);
-  color: var(--light, #fff);
+  background: var(--light, #fff);
+  color: var(--dark, #222);
   padding: 3rem 1.5rem 1rem;
   margin-top: 3rem;
   border-top: 4px solid var(--accent, #ff6600);
@@ -547,7 +547,7 @@ footer .contact-us h2 {
 
 footer .contact-us p {
   margin-bottom: 1.5rem;
-  color: #ccc;
+  color: #555;
   font-size: 1rem;
 }
 
@@ -566,24 +566,24 @@ footer .contact-info label {
   font-weight: 500;
   margin-bottom: 6px;
   font-size: 0.95rem;
-  color: #eee;
+  color: var(--dark, #222);
 }
 
 footer .contact-info input,
 footer .contact-info textarea {
   padding: 12px 14px;
   border-radius: var(--radius, 8px);
-  border: 1px solid #444;
-  background: #222;
-  color: var(--light, #fff);
+  border: 1px solid #ddd;
+  background: #fafafa;
+  color: var(--dark, #222);
   transition: border 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
 footer .contact-info input:focus,
 footer .contact-info textarea:focus {
   border-color: var(--accent, #ff6600);
-  box-shadow: 0 0 8px rgba(255, 102, 0, 0.3);
-  background: #2a2a2a;
+  box-shadow: 0 0 6px rgba(255, 102, 0, 0.25);
+  background: #fff;
 }
 
 footer .contact-info textarea {
@@ -607,7 +607,7 @@ footer .contact-us button:hover,
 footer .contact-us button:focus {
   background: var(--accent-hover, #e65c00);
   transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 /* Footer Links Section */
@@ -618,8 +618,8 @@ footer .contact-us button:focus {
   max-width: 1100px;
   margin: 0 auto;
   padding: 2rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
 }
 
 .footer-links h3 {
@@ -639,7 +639,7 @@ footer .contact-us button:focus {
 }
 
 .footer-links a {
-  color: #ccc;
+  color: #555;
   font-size: 0.95rem;
   transition: color 0.3s ease, text-decoration 0.3s ease;
 }
@@ -653,7 +653,7 @@ footer .contact-us button:focus {
 
 /* Address Styling */
 .footer-links .address p {
-  color: #bbb;
+  color: #666;
   line-height: 1.6;
   font-size: 0.95rem;
   margin: 0;
@@ -683,9 +683,9 @@ footer .contact-us button:focus {
   text-align: center;
   padding: 1rem 0 0;
   font-size: 0.9rem;
-  color: #aaa;
+  color: #777;
   margin-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid #eee;
 }
 
 /* Smooth Scroll */
@@ -700,9 +700,9 @@ html {
    HOME SECTION (Hero)
    ================================ */
 .home-section {
-  /* Full viewport height minus navbar */
+  
   min-height: calc(100vh - var(--nav-height, 70px));
-  min-height: calc(100dvh - var(--nav-height, 70px)); /* modern safe viewport */
+  min-height: calc(100dvh - var(--nav-height, 70px));
 
   display: flex;
   align-items: center;
@@ -1196,3 +1196,76 @@ html {
   color: #fff;
 }
 
+/* FAQ */
+.faq-section {
+  background: var(--light, #fff);
+  padding: 4rem 1.5rem;
+}
+
+.faq-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--dark, #222);
+}
+
+.faq-list {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid #ddd;
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--dark, #222);
+  padding: 1rem;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+  color: var(--accent, #ff6600);
+}
+
+.faq-icon {
+  font-size: 1.5rem;
+  color: var(--accent, #ff6600);
+  transition: transform 0.3s ease;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  padding: 0 1rem;
+}
+
+.faq-answer p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 1rem 0;
+}
+
+/* Active State */
+.faq-item.active .faq-answer {
+  max-height: 500px;
+  padding: 0 1rem 1rem;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
