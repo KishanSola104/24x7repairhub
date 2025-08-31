@@ -495,13 +495,19 @@ body {
 }
 
 /* Footer Section */
+/* ================================
+   Footer Section
+================================ */
 
+/* Base Footer */
 footer {
-  background: var(--dark);
-  color: var(--light);
+  background: var(--light, #fff);
+  color: var(--dark, #222);
   padding: 3rem 1.5rem 1rem;
   margin-top: 3rem;
-  border-top: 4px solid var(--accent);
+  border-top: 4px solid var(--accent, #ff6600);
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 /* Contact Form Section */
@@ -514,12 +520,12 @@ footer .contact-us {
 footer .contact-us h2 {
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
-  color: var(--accent);
+  color: var(--accent, #ff6600);
 }
 
 footer .contact-us p {
   margin-bottom: 1.5rem;
-  color: #ccc;
+  color: #555;
   font-size: 1rem;
 }
 
@@ -538,58 +544,72 @@ footer .contact-info label {
   font-weight: 500;
   margin-bottom: 6px;
   font-size: 0.95rem;
-  color: #eee;
+  color: var(--dark, #222);
 }
 
 footer .contact-info input,
 footer .contact-info textarea {
   padding: 12px 14px;
-  border-radius: var(--radius);
-  border: 1px solid #444;
-  background: #333;
-  color: var(--light);
-  transition: var(--transition);
+  border-radius: var(--radius, 8px);
+  border: 1px solid #ddd;
+  background: #fafafa;
+  color: var(--dark, #222);
+  transition: border 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
 footer .contact-info input:focus,
 footer .contact-info textarea:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 8px rgba(255, 102, 0, 0.3);
+  border-color: var(--accent, #ff6600);
+  box-shadow: 0 0 6px rgba(255, 102, 0, 0.25);
+  background: #fff;
+}
+
+footer .contact-info textarea {
+  resize: vertical;
+  min-height: 100px;
 }
 
 /* Submit Button */
 footer .contact-us button {
-  background: var(--accent);
-  color: var(--light);
+  background: var(--accent, #ff6600);
+  color: var(--light, #fff);
   padding: 0.9rem 1.2rem;
-  border-radius: var(--radius);
+  border-radius: var(--radius, 8px);
   font-weight: 600;
   cursor: pointer;
-  transition: var(--transition);
+  border: none;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
 }
 
-footer .contact-us button:hover {
-  background: var(--accent-hover);
+footer .contact-us button:hover,
+footer .contact-us button:focus {
+  background: var(--accent-hover, #e65c00);
   transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 /* Footer Links Section */
 .footer-links {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 2rem;
   max-width: 1100px;
   margin: 0 auto;
   padding: 2rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
 }
 
 .footer-links h3 {
   font-size: 1.2rem;
   margin-bottom: 1rem;
-  color: var(--accent);
+  color: var(--accent, #ff6600);
+}
+
+.footer-links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .footer-links ul li {
@@ -597,22 +617,24 @@ footer .contact-us button:hover {
 }
 
 .footer-links a {
-  color: #ccc;
+  color: #555;
   font-size: 0.95rem;
-  transition: var(--transition);
+  transition: color 0.3s ease, text-decoration 0.3s ease;
 }
 
-.footer-links a:hover {
-  color: var(--accent);
+.footer-links a:hover,
+.footer-links a:focus {
+  color: var(--accent, #ff6600);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-/* Address styling */
+/* Address Styling */
 .footer-links .address p {
-  color: #bbb;
+  color: #666;
   line-height: 1.6;
   font-size: 0.95rem;
+  margin: 0;
 }
 
 /* Social Icons */
@@ -623,24 +645,95 @@ footer .contact-us button:hover {
 }
 
 .social-links i {
-  color: var(--accent);
+  color: var(--accent, #ff6600);
   font-size: 1.1rem;
-  transition: var(--transition);
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.social-links a:hover i {
+.social-links a:hover i,
+.social-links a:focus i {
   transform: scale(1.2);
-  color: var(--accent-hover);
+  color: var(--accent-hover, #e65c00);
 }
 
-/* Sub Footer */
+/* =========================
+   SUB FOOTER
+   ========================= */
 .sub-footer {
   text-align: center;
-  padding: 1rem 0 0;
+  padding: 1rem 0;
   font-size: 0.9rem;
-  color: #aaa;
+  color: #777;
   margin-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid #eee;
+ 
 }
 
+.sub-footer a {
+  color: #1e90ff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.sub-footer a:hover {
+  color: #e65c00;
+}
+
+/* =========================
+   DISCLAIMER SECTION
+   ========================= */
+.sub-footer .disclaimer {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 15px;
+  padding-top: 10px;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.sub-footer .disclaimer p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+
 /* Main section */
+.service-detail {
+  padding: 3rem 1rem;
+  background: var(--primary-bg, #fff);
+}
+
+.service-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.service-image img {
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.service-content {
+  max-width: 600px;
+}
+
+.service-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--text-color, #222);
+}
+
+.service-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.service-buttons a {
+  margin-right: 0.8rem;
+}

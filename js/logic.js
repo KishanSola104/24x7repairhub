@@ -66,3 +66,5 @@ async function updateBrandContent() {
 
 // Run after DOM is ready
 document.addEventListener("DOMContentLoaded", updateBrandContent);
+
+

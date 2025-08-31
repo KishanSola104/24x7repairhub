@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta description="24x7 Repair Hub - Your Trusted Partner for Home Appliance Repairs" />
   <meta name="description"
@@ -13,7 +14,7 @@
   <title>24x7 Repair Hub - Home Appliances Repair Center</title>
 
   <!-- Stylesheets -->
- <link rel="stylesheet" href="/css/details.css">
+  <link rel="stylesheet" href="/css/details.css">
   <link rel="stylesheet" href="/css/responsive.css" />
 
   <!-- Font Awesome -->
@@ -21,8 +22,9 @@
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
-    
+
   <!-- Header Section -->
   <!-- ============ HEADER ============ -->
   <header class="site-header">
@@ -48,8 +50,8 @@
       </div>
 
       <ul class="nav-links" id="nav-links" role="menubar" aria-label="Primary">
-        <li role="none"><a role="menuitem" href="/" class="active">Home</a></li>
-        <li role="none"><a role="menuitem" href="/about">About Us</a></li>
+        <li role="none"><a role="menuitem" href="/index.html/#home" class="active">Home</a></li>
+        <li role="none"><a role="menuitem" href="/index.html/#about">About Us</a></li>
 
         <!-- Dropdown parent -->
         <li class="dropdown">
@@ -67,9 +69,9 @@
         </li>
 
 
-        <li role="none"><a role="menuitem" href="/contact">Contact Us</a></li>
-        <li role="none"><a role="menuitem" href="/privacy-policy">Privacy Policy</a></li>
-         <li role="none"><a role="menuitem" href="/terms-of-use">Terms of use</a></li>
+        <li role="none"><a role="menuitem" href="#contact">Contact Us</a></li>
+        <li role="none"><a role="menuitem" href="/privacy-policy.html">Privacy Policy</a></li>
+        <li role="none"><a role="menuitem" href="/terms-of-use.html">Terms of use</a></li>
         <li role="none"><button role="menuitem" class="btn" id="bookNow-btn">Book Now</button></li>
       </ul>
 
@@ -90,8 +92,8 @@
           <button class="close-btn" id="closeMenu" aria-label="Close Menu">&times;</button>
         </div>
 
-        <a href="/">Home</a>
-        <a href="/about">About Us</a>
+        <a href="/index.html/#home">Home</a>
+        <a href="/index.html/#about">About Us</a>
 
         <!-- Services submenu -->
         <div class="menu-item">
@@ -108,9 +110,9 @@
           </div>
         </div>
 
-        <a href="/contact">Contact Us</a>
-        <a href="/privacy-policy">Privacy Policy</a>
-        <a href="/terms-of-use">Terms of Use</a>
+        <a href="#contact">Contact Us</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms-of-use.html">Terms of Use</a>
         <button role="menuitem" class="btn" id="bookNow-btn">Book Now</button>
       </div>
     </nav>
@@ -120,8 +122,42 @@
   <!-- ============ MAIN CONTENT ============ -->
   <main class="container">
 
-    <!-- Here will be the main section of the details  -->
-    
+    <!-- ============ SERVICE DETAIL SECTION ============ -->
+    <section class="service-detail" id="serviceDetail">
+      <div class="service-container">
+
+        <!-- Service Image -->
+        <div class="service-image">
+          <img id="serviceImage" alt="Service Image" class="service-img" loading="lazy" decoding="async" />
+        </div>
+
+        <!-- Service Content -->
+        <div class="service-content">
+          <h1 id="serviceTitle" class="service-title"></h1>
+          <p id="serviceDescription" class="service-description"></p>
+
+          <!-- Buttons -->
+          <div class="service-buttons">
+            <a id="callBtn" href="tel:+919326500190" class="call-btn btn-primary" aria-label="Call 24x7 Repair Hub">
+              <i class="fa-solid fa-phone"></i> Call Us
+            </a>
+
+            <a id="whatsappBtn" href="https://wa.me/919326500190" target="_blank" rel="noopener"
+              class="wa-btn btn-whatsapp" aria-label="Chat with us on WhatsApp">
+              <i class="fa-brands fa-whatsapp"></i> WhatsApp
+            </a>
+
+            <a id="bookBtn" href="#booking-form" class="btn btn-secondary book-btn"
+              aria-label="Book repair service now">
+              <i class="fa-solid fa-clipboard-list"></i> Book Now
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
   </main>
 
   <!-- ============ FOOTER ============ -->
@@ -170,12 +206,12 @@
       <div class="quick-links">
         <h3>Quick Links</h3>
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Contact Us</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Use</a></li>
+          <li><a href="/index.html/#home">Home</a></li>
+          <li><a href="/index.html/#about">About Us</a></li>
+          <li><a href="/index.html/#expertise">Services</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/terms-of-use.html">Terms of Use</a></li>
         </ul>
       </div>
 
@@ -196,8 +232,25 @@
 
     <!-- Sub Footer -->
     <section class="sub-footer">
-      <p>&copy; 24x7 Repair Hub. All Rights Reserved.</p>
+      <div class="sub-footer-container">
+        <p>&copy; 2025 24x7 Repair Hub. All Rights Reserved.</p>
+        <p>
+          Designed & Developed by
+          <a href="https://shreejiitsolutions.com" target="_blank" rel="noopener noreferrer">
+            Shreeji IT Solutions PVT. LTD.
+          </a>
+        </p>
+      </div>
+
+      <!-- Disclaimer -->
+      <div class="disclaimer">
+        <p>
+          Disclaimer: We are an independent service provider and are not authorized associate partners from any brands.
+          Local repair vendors perform all service and repairs (we don’t hold any authorization of above brand).
+        </p>
+      </div>
     </section>
+
   </footer>
 
 
@@ -285,4 +338,5 @@
   <script src="/js/main.js"></script>
   <script src="/js/logic.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,40 @@
+{
+  "services": [
+    {
+      "id": "tv-repair",
+      "name": "TV Repair",
+      "img": "/images/backgrounds/TV.jpg",
+      "description": "We provide expert repair services for all types of TVs including LED, LCD, Plasma, and Smart TVs. Our trained technicians quickly diagnose and fix screen, sound, and connectivity issues."
+    },
+    {
+      "id": "ac-repair",
+      "name": "AC Repair",
+      "img": "/images/backgrounds/AC.jpg",
+      "description": "Our AC repair service covers split, window, and central ACs. We specialize in cooling efficiency improvement, gas refilling, compressor repair, and overall servicing."
+    },
+    {
+      "id": "washing-machine-repair",
+      "name": "Washing Machine Repair",
+      "img": "/images/backgrounds/WashingMachine.jpg",
+      "description": "From front-load to top-load washing machines, we handle drum issues, motor faults, drainage problems, and electronic board repairs with genuine spare parts."
+    },
+    {
+      "id": "refrigerator-repair",
+      "name": "Refrigerator Repair",
+      "img": "/images/backgrounds/REF.jpg",
+      "description": "Our refrigerator repair covers single door, double door, and side-by-side fridges. We fix cooling problems, gas leaks, thermostat issues, and unusual noise problems."
+    },
+    {
+      "id": "microwave-repair",
+      "name": "Microwave Repair",
+      "img": "/images/backgrounds/MicroWave.jpg",
+      "description": "We service solo, grill, and convection microwaves. Our technicians fix heating issues, door switch problems, sparking, and rotating plate faults."
+    },
+    {
+      "id": "dishwasher-repair",
+      "name": "Dishwasher Repair",
+      "img": "/images/backgrounds/DisWasher.jpg",
+      "description": "We repair all dishwasher types ensuring effective cleaning and drying. We handle water leakage, drainage issues, control panel errors, and noise reduction."
+    }
+  ]
+}
