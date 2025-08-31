@@ -185,36 +185,41 @@ document.addEventListener("DOMContentLoaded", () => {
   /* Actice Link  */
   const navLinks = document.querySelectorAll(".nav-links a");
 
-  // 1. Highlight based on current page
-  const currentPath = window.location.pathname;
-  const currentHash = window.location.hash;
+  const currentPath = window.location.pathname; // e.g. /privacy-policy.html
+  const currentHash = window.location.hash;     // e.g. #about
 
   navLinks.forEach(link => {
-    const linkPath = link.getAttribute("href");
+    // Get the absolute pathname of the link
+    const linkPath = new URL(link.href, window.location.origin).pathname;
 
-    // Match absolute page links (like privacy-policy.html)
-    if (currentPath.includes(linkPath) && linkPath.endsWith(".html")) {
+    // Clear previous active
+    link.classList.remove("active");
+
+    // For separate pages
+    if (linkPath === currentPath && !linkPath.endsWith("/")) {
       link.classList.add("active");
     }
 
-    // Match section links on index.html (#about, #contact, etc.)
-    if (currentPath.endsWith("index.html") || currentPath === "/") {
-      if (currentHash && linkPath === currentHash) {
-        link.classList.add("active");
-      } else if (!currentHash && linkPath === "#home") {
-        // Default: home is active only at top of index.html
+    // For index.html sections
+    if ((currentPath === "/" || currentPath.endsWith("index.html")) && currentHash) {
+      if (link.getAttribute("href") === currentHash) {
         link.classList.add("active");
       }
     }
+
+    // Default Home if on index.html top
+    if ((currentPath === "/" || currentPath.endsWith("index.html")) && !currentHash && link.getAttribute("href") === "#home") {
+      link.classList.add("active");
+    }
   });
 
-  // 2. On scroll, update active section (only for index.html)
-  if (currentPath.endsWith("index.html") || currentPath === "/") {
+  // Scroll behavior only for index.html
+  if (currentPath === "/" || currentPath.endsWith("index.html")) {
     const sections = document.querySelectorAll("section[id]");
     window.addEventListener("scroll", () => {
       let current = "";
       sections.forEach(section => {
-        const sectionTop = section.offsetTop - 80; // adjust header height
+        const sectionTop = section.offsetTop - 80; // adjust for header
         if (pageYOffset >= sectionTop) {
           current = "#" + section.getAttribute("id");
         }
@@ -229,5 +234,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  
+
 });
