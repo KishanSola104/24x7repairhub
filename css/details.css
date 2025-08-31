@@ -779,3 +779,37 @@ footer .contact-us button:focus {
   background-color: #333;
   transform: translateY(-2px);
 }
+
+
+/* Responsive for mobile devices */
+@media (max-width: 768px) {
+  .service-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service-image img {
+    max-width: 90%; /* fit smaller screens */
+  }
+
+  .service-content {
+    max-width: 90%;
+    text-align: center;
+  }
+
+  .service-buttons a {
+    width: 100%;       
+    margin: 0.5rem 0;  
+  }
+}
+
+/* Smaller mobile screens */
+@media (max-width: 480px) {
+  .service-title {
+    font-size: 1.6rem;
+  }
+
+  .service-description {
+    font-size: 0.95rem;
+  }
+}
