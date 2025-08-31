@@ -233,4 +233,60 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+
+
+ /* Expertise */
+//  Toggle "View More / Show Less" 
+const btn = document.getElementById("toggleExpertise");
+const items = document.querySelectorAll(".expertise-item");
+
+function updateExpertiseView() {
+  const screenWidth = window.innerWidth;
+  const isExpanded = btn && btn.textContent === "Show Less";
+
+  items.forEach((item, index) => {
+    if (screenWidth >= 1024) {
+      // Desktop: always show all
+      item.style.display = "block";
+      if (btn) btn.style.display = "none"; 
+    } else if (screenWidth >= 768 && screenWidth < 1024) {
+      // Tablet: show first 4, toggle rest
+      item.style.display = index < 4 || isExpanded ? "block" : "none";
+      if (btn) btn.style.display = "inline-block";
+    } else {
+      // Mobile: show first 2, toggle rest
+      item.style.display = index < 2 || isExpanded ? "block" : "none";
+      if (btn) btn.style.display = "inline-block";
+    }
+  });
+}
+
+// Handle button click
+if (btn) {
+  btn.addEventListener("click", () => {
+    const isExpanded = btn.textContent === "Show Less";
+    btn.textContent = isExpanded ? "View More" : "Show Less";
+    updateExpertiseView();
+  });
+}
+
+// Run on load & resize
+window.addEventListener("load", updateExpertiseView);
+window.addEventListener("resize", updateExpertiseView);
+
+
+//  Animate items on scroll 
+const expertiseItems = document.querySelectorAll('.expertise-item');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.2 });
+
+expertiseItems.forEach(item => observer.observe(item));
+
+
+
 });

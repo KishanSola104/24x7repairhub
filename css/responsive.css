@@ -1,15 +1,19 @@
-
 /*Header*/
 @media (max-width: 1024px) {
-  .nav-links { display: none; }
-  .menu-toggle { display: inline-flex; }
+  .nav-links {
+    display: none;
+  }
+  .menu-toggle {
+    display: inline-flex;
+  }
 }
 @media (min-width: 1025px) {
   .menu-toggle,
   .mobile-menu,
-  .menu-overlay { display: none !important; }
+  .menu-overlay {
+    display: none !important;
+  }
 }
-
 
 /* Book Now Form */
 @media (max-height: 600px) {
@@ -55,7 +59,6 @@
   }
 }
 
-
 /* Main Section */
 
 /* Home Section */
@@ -83,8 +86,30 @@
     font-size: 1rem;
   }
 
-  .call-btn , .wa-btn , .book-btn {
+  .call-btn,
+  .wa-btn,
+  .book-btn {
     flex: 1 1 100%;
     justify-content: center;
   }
 }
+
+/* About */
+/* Responsive */
+@media (max-width: 992px) {
+  .about-us-container {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .about-us-left,
+  .about-us-right {
+    width: 100%;
+  }
+
+  .about-us-specialties {
+    justify-content: center;
+  }
+}
+
+/* Expertise */
