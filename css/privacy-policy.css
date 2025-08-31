@@ -644,3 +644,111 @@ footer .contact-us button:hover {
 }
 
 /* Main section */
+/* =============================
+   PRIVACY POLICY PAGE STYLES
+   ============================= */
+#privacy-main.privacy-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.8;
+  color: var(--dark, #222);
+  background-color: var(--light, #fff);
+}
+
+#privacy-main h1.privacy-heading-1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--accent, #ff6600);
+  text-align: center;
+}
+
+#privacy-main h2.privacy-heading-2 {
+  font-size: 2rem;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  color: var(--accent, #ff6600);
+  border-bottom: 2px solid var(--accent, #ff6600);
+  padding-bottom: 5px;
+}
+
+#privacy-main h3.privacy-heading-3 {
+  font-size: 1.5rem;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: var(--dark, #222);
+}
+
+#privacy-main h4.privacy-heading-4 {
+  font-size: 1.2rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: var(--accent, #ff6600);
+}
+
+#privacy-main p.privacy-paragraph {
+  margin-bottom: 15px;
+  font-size: 1rem;
+  color: var(--dark, #222);
+}
+
+#privacy-main ul.privacy-list {
+  margin: 10px 0 20px 20px;
+  list-style-type: disc;
+}
+
+#privacy-main ul.privacy-list li {
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+#privacy-main ul.privacy-list li strong {
+  color: var(--accent, #ff6600);
+}
+
+#privacy-main a {
+  color: var(--accent, #ff6600);
+  text-decoration: none;
+  transition: var(--transition, all 0.28s ease);
+}
+
+#privacy-main a:hover {
+  color: var(--accent-hover, #e65c00);
+  text-decoration: underline;
+}
+
+#privacy-contact-phone a {
+  color: var(--accent, #ff6600);
+  text-decoration: none;
+  transition: var(--transition, all 0.28s ease);
+}
+
+#privacy-contact-phone a:hover {
+  color: var(--accent-hover, #e65c00);
+  text-decoration: underline;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  #privacy-main.privacy-container {
+    padding: 30px 15px;
+  }
+
+  #privacy-main h1.privacy-heading-1 {
+    font-size: 2rem;
+  }
+
+  #privacy-main h2.privacy-heading-2 {
+    font-size: 1.6rem;
+  }
+
+  #privacy-main h3.privacy-heading-3 {
+    font-size: 1.3rem;
+  }
+
+  #privacy-main h4.privacy-heading-4 {
+    font-size: 1.1rem;
+  }
+}

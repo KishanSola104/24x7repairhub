@@ -113,15 +113,23 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const servicePlaceholder = document.createElement("option");
-  servicePlaceholder.value="";
-  servicePlaceholder.textContent="Select A Service";
+  servicePlaceholder.value = "";
+  servicePlaceholder.textContent = "Select A Service";
   serviceSelect.appendChild(servicePlaceholder);
-  servicePlaceholder.selected=true;
-  servicePlaceholder.disabled=true;
+  servicePlaceholder.selected = true;
+  servicePlaceholder.disabled = true;
 
-  const services = ["TV Repair","AC Repair","Washing Machine Repair","Refrigerator Repair","Microwave Repair","Dishwasher Repair","Other"];
+  const services = [
+    "TV Repair",
+    "AC Repair",
+    "Washing Machine Repair",
+    "Refrigerator Repair",
+    "Microwave Repair",
+    "Dishwasher Repair",
+    "Other",
+  ];
 
-  services.forEach((service)=>{
+  services.forEach((service) => {
     const serviceOption = document.createElement("option");
     serviceOption.value = service;
     serviceOption.textContent = service;
@@ -181,7 +189,6 @@ document.addEventListener("DOMContentLoaded", () => {
     stateDropdown.appendChild(stateOption);
   });
 
-
   /* Actice Link  */
   const navLinks = document.querySelectorAll(".nav-links a");
 
@@ -189,38 +196,36 @@ document.addEventListener("DOMContentLoaded", () => {
   const currentPath = window.location.pathname;
   const currentHash = window.location.hash;
 
-  navLinks.forEach(link => {
+  navLinks.forEach((link) => {
     const linkPath = link.getAttribute("href");
 
-    // Match absolute page links (like privacy-policy.html)
     if (currentPath.includes(linkPath) && linkPath.endsWith(".html")) {
       link.classList.add("active");
     }
 
-    // Match section links on index.html (#about, #contact, etc.)
+    // Match section links on index.html
     if (currentPath.endsWith("index.html") || currentPath === "/") {
       if (currentHash && linkPath === currentHash) {
         link.classList.add("active");
       } else if (!currentHash && linkPath === "#home") {
-        // Default: home is active only at top of index.html
+        //  home is active only at top of index.html
         link.classList.add("active");
       }
     }
   });
 
-  // 2. On scroll, update active section (only for index.html)
   if (currentPath.endsWith("index.html") || currentPath === "/") {
     const sections = document.querySelectorAll("section[id]");
     window.addEventListener("scroll", () => {
       let current = "";
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 80; // adjust header height
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 80;
         if (pageYOffset >= sectionTop) {
           current = "#" + section.getAttribute("id");
         }
       });
 
-      navLinks.forEach(link => {
+      navLinks.forEach((link) => {
         link.classList.remove("active");
         if (link.getAttribute("href") === current) {
           link.classList.add("active");
@@ -228,6 +233,4 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
-
-  
 });
