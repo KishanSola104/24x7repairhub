@@ -696,38 +696,38 @@ html {
 
 
 /* Main section */
-
 /* ================================
-   Home Section (Hero)
-================================ */
-
+   HOME SECTION (Hero)
+   ================================ */
 .home-section {
-  min-height: calc(100vh - var(--nav-height));
+  /* Full viewport height minus navbar */
+  min-height: calc(100vh - var(--nav-height, 70px));
+  min-height: calc(100dvh - var(--nav-height, 70px)); /* modern safe viewport */
+
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2rem 1rem;
-  background: var(--light);
+  background: var(--light, #fff);
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-/* Fix for mobile browsers with dynamic toolbars */
-@supports (height: 100svh) {
-  .home-section {
-    min-height: calc(100svh - var(--nav-height));
-  }
-}
-
-
+/* Container Layout */
 .home-container {
   max-width: 1200px;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   align-items: center;
   gap: 2rem;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
-/* Image */
+/* ================================
+   IMAGE
+   ================================ */
 .home-image {
   display: flex;
   justify-content: center;
@@ -736,37 +736,48 @@ html {
 .home-image .logo-img {
   max-width: 100%;
   height: auto;
-  border-radius: var(--radius);
+  border-radius: var(--radius, 10px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
-/* Text */
+.home-image .logo-img:hover {
+  transform: scale(1.03);
+}
+
+/* ================================
+   TEXT CONTENT
+   ================================ */
 .home-content {
   text-align: left;
 }
 
 .home-title {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 700;
-  color: var(--dark);
+  color: var(--dark, #222);
   margin-bottom: 1rem;
+  line-height: 1.2;
 }
 
 .home-subtitle {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2vw, 1.1rem);
   color: #555;
   margin-bottom: 1.5rem;
   line-height: 1.6;
+  max-width: 550px;
 }
 
-/* Buttons container */
+/* ================================
+   BUTTONS
+   ================================ */
 .home-buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
 }
 
-/* Base button */
+/* Base Buttons */
 .call-btn,
 .wa-btn,
 .book-btn {
@@ -776,48 +787,58 @@ html {
   padding: 0.75rem 1.25rem;
   font-size: 1rem;
   font-weight: 500;
-  border-radius: var(--radius);
+  border-radius: var(--radius, 8px);
   text-decoration: none;
-  transition: var(--transition);
   cursor: pointer;
   border: none;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.call-btn,
-.wa-btn,
+.call-btn i,
+.wa-btn i,
 .book-btn i {
   font-size: 1.1rem;
 }
 
 /* Primary button (accent color) */
 .btn-primary {
-  background: var(--accent);
-  color: var(--light);
+  background: var(--accent, #ff6600);
+  color: var(--light, #fff);
 }
 
-.btn-primary:hover {
-  background: var(--accent-hover);
+.btn-primary:hover,
+.btn-primary:focus {
+  background: var(--accent-hover, #e65c00);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(230, 92, 0, 0.25);
 }
 
 /* WhatsApp button */
 .btn-whatsapp {
   background: #25d366;
-  color: var(--light);
+  color: var(--light, #fff);
 }
 
-.btn-whatsapp:hover {
+.btn-whatsapp:hover,
+.btn-whatsapp:focus {
   background: #1ebe5d;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
 }
 
 /* Secondary button (dark) */
 .btn-secondary {
-  background: var(--dark);
-  color: var(--light);
+  background: var(--dark, #222);
+  color: var(--light, #fff);
 }
 
-.btn-secondary:hover {
+.btn-secondary:hover,
+.btn-secondary:focus {
   opacity: 0.9;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
+
 
 
 /* ================================
