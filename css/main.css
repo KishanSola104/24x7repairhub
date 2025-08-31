@@ -687,6 +687,17 @@ footer .contact-us button:focus {
   margin-top: 2rem;
   border-top: 1px solid #eee;
 }
+.sub-footer a {
+  color: #1e90ff; 
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.sub-footer a:hover {
+  color:  #e65c00; 
+}
+
 
 /* Smooth Scroll */
 html {
