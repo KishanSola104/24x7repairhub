@@ -85,13 +85,13 @@
 ========================= */
 @media (max-width: 768px) {
   .home-section {
-    height: auto; /* allow natural height on small screens */
+    height: auto; 
     padding: 4rem 1rem;
     margin-top: var(--nav-height, 70px);
   }
 
   .home-container {
-    grid-template-columns: 1fr; /* stack */
+    grid-template-columns: 1fr; 
     text-align: center;
   }
 
