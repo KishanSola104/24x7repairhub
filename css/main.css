@@ -700,13 +700,16 @@ html {
 /* ================================
    Home Section
 ================================ */
-
+/* =========================
+   HOME SECTION (Hero)
+========================= */
 .home-section {
-  min-height: calc(100vh - var(--nav-height, 70px));
+  height: calc(100vh - var(--nav-height, 70px)); /* full page minus navbar */
+  margin-top: var(--nav-height, 70px); /* push content below fixed navbar */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem 1rem;
+  padding: 0 1rem; /* horizontal padding only */
   background: var(--light, #fff);
 }
 
@@ -744,7 +747,7 @@ html {
 }
 
 .home-title {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   font-weight: 700;
   color: var(--dark, #222);
   margin-bottom: 1rem;
@@ -752,7 +755,7 @@ html {
 }
 
 .home-subtitle {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: #555;
   margin-bottom: 1.5rem;
   line-height: 1.6;
@@ -827,6 +830,8 @@ html {
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
+
+
 
 /* ================================
    About Us Section
@@ -1058,39 +1063,7 @@ html {
   bottom: 0;
 }
 
-/* Responsive grids */
-@media (min-width: 1024px) {
-  .expertise-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .toggle-btn {
-    display: none;
-  }
-}
 
-@media (min-width: 768px) and (max-width: 1023px) {
-  .expertise-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .expertise-item {
-    display: none;
-  }
-  .expertise-item:nth-child(-n+4) {
-    display: block;
-  }
-}
-
-@media (max-width: 767px) {
-  .expertise-grid {
-    grid-template-columns: 1fr;
-  }
-  .expertise-item {
-    display: none;
-  }
-  .expertise-item:nth-child(-n+2) {
-    display: block;
-  }
-}
 
 /* Toggle Button */
 .toggle-btn {
@@ -1215,14 +1188,3 @@ html {
   color: #fff;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .choose-us-content {
-    flex-direction: column;
-    text-align: center;
-  }
-  .left-image img {
-    max-width: 100%;
-    margin-bottom: 1.5rem;
-  }
-}

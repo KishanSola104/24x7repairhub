@@ -80,12 +80,18 @@
    ========================= */
 
 /* HOME SECTION */
-/* ================================
-   Responsive
-================================ */
-@media (max-width: 992px) {
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+@media (max-width: 768px) {
+  .home-section {
+    height: auto; /* allow natural height on small screens */
+    padding: 4rem 1rem;
+    margin-top: var(--nav-height, 70px);
+  }
+
   .home-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* stack */
     text-align: center;
   }
 
@@ -93,16 +99,18 @@
     text-align: center;
   }
 
-  .home-subtitle {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
   .home-buttons {
     justify-content: center;
   }
-}
 
+  .home-title {
+    font-size: 2.2rem;
+  }
+
+  .home-subtitle {
+    font-size: 1rem;
+  }
+}
 
 /* ================================
    Responsive
@@ -123,8 +131,49 @@
   }
 }
 
+/* Responsive */
+@media (max-width: 768px) {
+  .choose-us-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .left-image img {
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+  }
+}
 
 
-/* =========================
-   EXPERTISE (Add styles later)
-   ========================= */
+/* Responsive grids */
+@media (min-width: 1024px) {
+  .expertise-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .toggle-btn {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .expertise-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .expertise-item {
+    display: none;
+  }
+  .expertise-item:nth-child(-n+4) {
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  .expertise-grid {
+    grid-template-columns: 1fr;
+  }
+  .expertise-item {
+    display: none;
+  }
+  .expertise-item:nth-child(-n+2) {
+    display: block;
+  }
+}
