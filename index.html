@@ -34,31 +34,31 @@
         <a href="tel:+919326500190" aria-label="Call 24x7 Repair Hub">+91 93265 00190</a>
       </div>
 
-     
+
       <nav class="right-links" aria-label="Social Media Links">
-    <ul>
-      <li>
-        <a href="https://facebook.com" target="_blank" aria-label="Visit us on Facebook">
-          <i class="fa-brands fa-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a href="https://instagram.com" target="_blank" aria-label="Visit us on Instagram">
-          <i class="fa-brands fa-instagram"></i>
-        </a>
-      </li>
-      <li>
-        <a href="https://twitter.com" target="_blank" aria-label="Visit us on Twitter">
-          <i class="fa-brands fa-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a href="https://linkedin.com" target="_blank" aria-label="Visit us on LinkedIn">
-          <i class="fa-brands fa-linkedin"></i>
-        </a>
-      </li>
-    </ul>
-  </nav>
+        <ul>
+          <li>
+            <a href="https://facebook.com" target="_blank" aria-label="Visit us on Facebook">
+              <i class="fa-brands fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://instagram.com" target="_blank" aria-label="Visit us on Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com" target="_blank" aria-label="Visit us on Twitter">
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://linkedin.com" target="_blank" aria-label="Visit us on LinkedIn">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
 
     </div>
 
@@ -458,40 +458,115 @@
 
   <!-- ============ FOOTER ============ -->
   <footer>
-    <!-- Contact US Form -->
-    <section class="contact-us" id="contact">
-      <h2>Contact Us</h2>
-      <p>If you have any questions or inquiries, feel free to reach out to us!</p>
+   <section class="contact-us" id="contact">
+  <h2>Contact Us</h2>
+  <p>If you have any questions or inquiries, feel free to reach out to us!</p>
 
-      <form id="contactForm" method="POST" action="/submit">
-        <div class="contact-info">
-          <label for="userName">Enter Your Name:</label>
-          <input type="text" id="userName" name="name" placeholder="Enter Your Name" required pattern="[a-zA-Z\s]+"
-            title="Enter a valid name (letters only)" />
-        </div>
+  <form id="contactFormFS" class="contact-form"
+        action="https://formsubmit.co/24x7repairhub@gmail.com"
+        method="POST" target="_self" novalidate>
+    <!-- Pretty email table -->
+    <input type="hidden" name="_template" value="table">
+    <!-- Subject -->
+    <input type="hidden" name="_subject" value="New Contact — 24x7 Repair Hub">
+    <!-- Disable captcha (optional) -->
+    <input type="hidden" name="_captcha" value="false">
+    <!-- Redirect (optional). If you keep AJAX below, no redirect will occur -->
+    <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
 
-        <div class="contact-info">
-          <label for="userEmail">Enter Your Email:</label>
-          <input type="email" id="userEmail" name="email" placeholder="Enter Your Email" required
-            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-            title="Enter a valid email address (e.g., user@example.com)" />
-        </div>
+    <div class="contact-info">
+      <label for="fsName">Enter Your Name:</label>
+      <input type="text" id="fsName" name="Name" placeholder="Enter Your Name" required pattern="[a-zA-Z\s]+"
+             title="Enter a valid name (letters only)" />
+      <small class="error" id="fsErrName"></small>
+    </div>
 
-        <div class="contact-info">
-          <label for="userMobile">Enter Your Mobile:</label>
-          <input type="tel" id="userMobile" name="userMobile" placeholder="Enter Your Mobile No." required
-            pattern="(\+91)?[6-9][0-9]{9}" title="Enter a valid Indian mobile number (with or without +91)" />
-        </div>
+    <div class="contact-info">
+      <label for="fsEmail">Enter Your Email:</label>
+      <input type="email" id="fsEmail" name="Email" placeholder="Enter Your Email" required
+             pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+             title="Enter a valid email address (e.g., user@example.com)" />
+      <small class="error" id="fsErrEmail"></small>
+    </div>
 
-        <div class="contact-info">
-          <label for="userMessage">Enter Your Message:</label>
-          <textarea id="userMessage" name="message" placeholder="Enter Your Message" required maxlength="500"
-            rows="5"></textarea>
-        </div>
+    <div class="contact-info">
+      <label for="fsMobile">Enter Your Mobile:</label>
+      <input type="tel" id="fsMobile" name="Mobile" placeholder="Enter Your Mobile No." required
+             pattern="(\+91)?[6-9][0-9]{9}" title="Enter a valid Indian mobile number (with or without +91)" />
+      <small class="error" id="fsErrMobile"></small>
+    </div>
 
-        <button type="submit">Send</button>
-      </form>
-    </section>
+    <div class="contact-info">
+      <label for="fsMessage">Enter Your Message:</label>
+      <textarea id="fsMessage" name="Message" placeholder="Enter Your Message" required maxlength="500" rows="5"></textarea>
+      <small class="error" id="fsErrMessage"></small>
+    </div>
+
+    <button type="submit" id="fsBtn">Send</button>
+    <p id="fsStatus" aria-live="polite" style="margin-top:.75rem;font-weight:600;"></p>
+  </form>
+</section>
+
+<script>
+(function () {
+  const form = document.getElementById("contactFormFS");
+  const statusEl = document.getElementById("fsStatus");
+  const btn = document.getElementById("fsBtn");
+
+  const err = {
+    name: document.getElementById("fsErrName"),
+    email: document.getElementById("fsErrEmail"),
+    mobile: document.getElementById("fsErrMobile"),
+    message: document.getElementById("fsErrMessage")
+  };
+
+  function setError(el, msg) { el.textContent = msg || ""; }
+
+  function validate() {
+    let ok = true;
+    const name = document.getElementById("fsName").value.trim();
+    const email = document.getElementById("fsEmail").value.trim();
+    const mobile = document.getElementById("fsMobile").value.trim();
+    const message = document.getElementById("fsMessage").value.trim();
+
+    if (!/^[a-zA-Z\s]+$/.test(name)) { setError(err.name, "Please enter a valid name."); ok = false; } else setError(err.name, "");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { setError(err.email, "Please enter a valid email."); ok = false; } else setError(err.email, "");
+    if (!/^(\+91)?[6-9][0-9]{9}$/.test(mobile)) { setError(err.mobile, "Please enter a valid Indian mobile."); ok = false; } else setError(err.mobile, "");
+    if (message.length < 1 || message.length > 500) { setError(err.message, "Message must be 1–500 chars."); ok = false; } else setError(err.message, "");
+
+    return ok;
+  }
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    statusEl.textContent = "";
+    if (!validate()) {
+      statusEl.textContent = "❌ Please fix the highlighted fields and try again.";
+      return;
+    }
+
+    btn.disabled = true; btn.textContent = "Sending…";
+
+    try {
+      // Send via FormSubmit using AJAX to avoid page reload
+      const formData = new FormData(form);
+      const res = await fetch(form.action, { method: "POST", body: formData });
+
+      if (res.ok) {
+        form.reset();
+        statusEl.textContent = "✅ Thanks! We’ve received your message and will reach you as soon as possible.";
+      } else {
+        statusEl.textContent = "⚠️ Something went wrong while submitting. Please try again.";
+      }
+    } catch (err) {
+      statusEl.textContent = "⚠️ Network error. Please try again.";
+    } finally {
+      btn.disabled = false; btn.textContent = "Send";
+    }
+  });
+})();
+</script>
+
 
     <!-- Footer Links -->
     <section class="footer-links">
