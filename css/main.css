@@ -1297,3 +1297,44 @@ html {
 .faq-item.active .faq-icon {
   transform: rotate(45deg);
 }
+
+
+
+/* Right Links */
+/* Right Links (Social Media) */
+.right-links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;              /* horizontal order */
+  gap: 1rem;                  /* spacing between icons */
+}
+
+.right-links li {
+  display: flex;
+  align-items: center;
+}
+
+.right-links a {
+  font-size: 1.2rem;           /* icon size */
+  display: inline-block;
+  transition: transform 0.3s ease; /* smooth hover */
+}
+
+.right-links a:hover {
+  transform: scale(1.2);       /* zoom effect */
+}
+
+/* Responsive - icons centered on small screens */
+@media (max-width: 768px) {
+  .sub-navbar {
+    flex-direction: column;    /* stack contact + social */
+    align-items: center;
+    text-align: center;
+  }
+
+  .right-links ul {
+    justify-content: center;
+    flex-wrap: wrap;           /* allow wrapping if many icons */
+  }
+}
