@@ -789,7 +789,7 @@ footer .contact-us button:focus {
   }
 
   .service-image img {
-    max-width: 90%; /* fit smaller screens */
+    max-width: 90%; 
   }
 
   .service-content {
