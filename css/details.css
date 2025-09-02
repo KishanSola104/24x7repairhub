@@ -813,3 +813,44 @@ footer .contact-us button:focus {
     font-size: 0.95rem;
   }
 }
+
+
+
+/* Right Links */
+
+.right-links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;              
+  gap: 1rem;                
+}
+
+.right-links li {
+  display: flex;
+  align-items: center;
+}
+
+.right-links a {
+  font-size: 1.2rem;          
+  display: inline-block;
+  transition: transform 0.3s ease; 
+}
+
+.right-links a:hover {
+  transform: scale(1.2);     
+}
+
+/* Responsive  */
+@media (max-width: 768px) {
+  .sub-navbar {
+    flex-direction: column;  
+    align-items: center;
+    text-align: center;
+  }
+
+  .right-links ul {
+    justify-content: center;
+    flex-wrap: wrap;           
+  }
+}
