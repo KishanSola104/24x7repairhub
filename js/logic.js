@@ -69,19 +69,26 @@ document.addEventListener("DOMContentLoaded", updateBrandContent);
 
 
 /* Send Emails */
-function sendMail() {
-  let params={
-    name:document.getElementById("fsName").value,
-    email:document.getElementById("fsEmail").value,
-    mobile:document.getElementById("fsMobile").value,
-    message:document.getElementById("fsMessage").value
-  }
+ // Attach submit event to the form
+  document.getElementById("contactFormFS").addEventListener("submit", function(e) {
+    e.preventDefault(); // Prevent page reload
 
-  emailjs.send("service_5pgpnc2", "template_fqk23ps", params)
-    .then((response) => {
-      console.log("Email sent successfully:", response);
-    })
-    .catch((error) => {
-      console.error("Error sending email:", error);
-    });
-}
+    // Collect form values
+    const params = {
+      name: document.getElementById("fsName").value,
+      email: document.getElementById("fsEmail").value,
+      mobile: document.getElementById("fsMobile").value,
+      message: document.getElementById("fsMessage").value
+    };
+
+    // Send email via EmailJS
+    emailjs.send("service_5pgpnc2", "template_fqk23ps", params)
+      .then((response) => {
+        alert("Email sent successfully!");
+        document.getElementById("contactFormFS").reset(); // Reset form
+      })
+      .catch((error) => {
+        alert("Error sending email. Please try again.");
+        console.error(error);
+      });
+  });
