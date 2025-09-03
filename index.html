@@ -20,6 +20,19 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <!-- Email -->
+     <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "JOl37qdpANitfjK0o",
+      });
+   })();
+</script>
 </head>
 
 <body>
@@ -461,100 +474,49 @@
    <section class="contact-us" id="contact">
   <h2>Contact Us</h2>
   <p>If you have any questions or inquiries, feel free to reach out to us!</p>
+<form id="contactFormFS" class="contact-form">
 
-<form id="contactForm">
-  <input type="text" name="name" placeholder="Your Name" required>
-  <input type="email" name="email" placeholder="Your Email" required>
-  <textarea name="message" placeholder="Your Message" required></textarea>
-  <button type="submit">Send</button>
+  <!-- Name -->
+  <div class="contact-info">
+    <label for="fsName">Enter Your Name:</label>
+    <input type="text" id="fsName" name="Name" placeholder="Enter Your Name"
+           required pattern="^[A-Za-z\s]{2,}$"
+           title="Enter a valid name (letters only)" />
+    <small class="error" id="fsErrName"></small>
+  </div>
+
+  <!-- Email -->
+  <div class="contact-info">
+    <label for="fsEmail">Enter Your Email:</label>
+    <input type="email" id="fsEmail" name="Email" placeholder="Enter Your Email"
+           required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+           title="Enter a valid email address (e.g., user@example.com)" />
+    <small class="error" id="fsErrEmail"></small>
+  </div>
+
+  <!-- Mobile -->
+  <div class="contact-info">
+    <label for="fsMobile">Enter Your Mobile:</label>
+    <input type="tel" id="fsMobile" name="Mobile" placeholder="Enter Your Mobile No."
+           required pattern="^(\+91)?[6-9][0-9]{9}$"
+           title="Enter a valid Indian mobile number (with or without +91)" />
+    <small class="error" id="fsErrMobile"></small>
+  </div>
+
+  <!-- Message -->
+  <div class="contact-info">
+    <label for="fsMessage">Enter Your Message:</label>
+    <textarea id="fsMessage" name="Message" placeholder="Enter Your Message"
+              required maxlength="500" rows="5"></textarea>
+    <small class="error" id="fsErrMessage"></small>
+  </div>
+
+  <button type="submit" id="fsBtn" onclick="sendMail()">Send</button>
+  
 </form>
-
-<p id="status"></p>
-
-<script>
-  document.getElementById("contactForm").addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const formData = {
-      name: e.target.name.value,
-      email: e.target.email.value,
-      message: e.target.message.value,
-    };
-
-    const res = await fetch("/.netlify/functions/send-email", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
-
-    const data = await res.json();
-    document.getElementById("status").innerText = data.message || "Something went wrong!";
-  });
-</script>
-
-
-
 </section>
 
-<script>
-(function () {
-  const form = document.getElementById("contactFormFS");
-  const statusEl = document.getElementById("fsStatus");
-  const btn = document.getElementById("fsBtn");
 
-  const err = {
-    name: document.getElementById("fsErrName"),
-    email: document.getElementById("fsErrEmail"),
-    mobile: document.getElementById("fsErrMobile"),
-    message: document.getElementById("fsErrMessage")
-  };
-
-  function setError(el, msg) { el.textContent = msg || ""; }
-
-  function validate() {
-    let ok = true;
-    const name = document.getElementById("fsName").value.trim();
-    const email = document.getElementById("fsEmail").value.trim();
-    const mobile = document.getElementById("fsMobile").value.trim();
-    const message = document.getElementById("fsMessage").value.trim();
-
-    if (!/^[a-zA-Z\s]+$/.test(name)) { setError(err.name, "Please enter a valid name."); ok = false; } else setError(err.name, "");
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { setError(err.email, "Please enter a valid email."); ok = false; } else setError(err.email, "");
-    if (!/^(\+91)?[6-9][0-9]{9}$/.test(mobile)) { setError(err.mobile, "Please enter a valid Indian mobile."); ok = false; } else setError(err.mobile, "");
-    if (message.length < 1 || message.length > 500) { setError(err.message, "Message must be 1–500 chars."); ok = false; } else setError(err.message, "");
-
-    return ok;
-  }
-
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
-    statusEl.textContent = "";
-    if (!validate()) {
-      statusEl.textContent = "❌ Please fix the highlighted fields and try again.";
-      return;
-    }
-
-    btn.disabled = true; btn.textContent = "Sending…";
-
-    try {
-      // Send via FormSubmit using AJAX to avoid page reload
-      const formData = new FormData(form);
-      const res = await fetch(form.action, { method: "POST", body: formData });
-
-      if (res.ok) {
-        form.reset();
-        statusEl.textContent = "✅ Thanks! We’ve received your message and will reach you as soon as possible.";
-      } else {
-        statusEl.textContent = "⚠️ Something went wrong while submitting. Please try again.";
-      }
-    } catch (err) {
-      statusEl.textContent = "⚠️ Network error. Please try again.";
-    } finally {
-      btn.disabled = false; btn.textContent = "Send";
-    }
-  });
-})();
-</script>
 
 
     <!-- Footer Links -->
@@ -685,7 +647,6 @@
 
 
   <!-- Scripts -->
- 
   <script src="/js/main.js"></script>
   <script src="/js/logic.js"></script>
 </body>

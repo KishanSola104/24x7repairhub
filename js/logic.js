@@ -68,3 +68,20 @@ async function updateBrandContent() {
 document.addEventListener("DOMContentLoaded", updateBrandContent);
 
 
+/* Send Emails */
+function sendMail() {
+  let params={
+    name:document.getElementById("fsName").value,
+    email:document.getElementById("fsEmail").value,
+    mobile:document.getElementById("fsMobile").value,
+    message:document.getElementById("fsMessage").value
+  }
+
+  emailjs.send("service_5pgpnc2", "template_fqk23ps", params)
+    .then((response) => {
+      console.log("Email sent successfully:", response);
+    })
+    .catch((error) => {
+      console.error("Error sending email:", error);
+    });
+}
