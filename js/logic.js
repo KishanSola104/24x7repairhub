@@ -95,18 +95,18 @@ document.addEventListener("DOMContentLoaded", updateBrandContent);
 
 
   
-/* Email for Booking */
+
 /* ==========================
    EmailJS - Booking Form
 ========================== */
 
-// ✅ Init EmailJS immediately
+
 (function () {
   console.log("Initializing EmailJS...");
-  emailjs.init("JOl37qdpANitfjK0o"); // <-- Your public key
+  emailjs.init("JOl37qdpANitfjK0o"); // 
 })();
 
-// ✅ Wait until DOM is ready
+
 document.addEventListener("DOMContentLoaded", function () {
   console.log("DOM ready → attaching booking form listener");
 
@@ -115,16 +115,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const submitBtn = bookingForm?.querySelector("button[type='submit']");
 
   if (!bookingForm) {
-    console.error("❌ bookingForm not found in DOM.");
+    console.error(" bookingForm not found in DOM.");
     return;
   }
 
   bookingForm.addEventListener("submit", function (e) {
     e.preventDefault();
-    console.log("✅ Booking form submitted");
+    console.log(" Booking form submitted");
 
     if (submitBtn.disabled) {
-      console.warn("⚠️ Submission already in progress. Ignoring duplicate.");
+      console.warn(" Submission already in progress. Ignoring duplicate.");
       return;
     }
 
@@ -146,10 +146,10 @@ document.addEventListener("DOMContentLoaded", function () {
       message: document.getElementById("message").value,
     };
 
-    console.log("📦 Collected params:", params);
+   
 
-    // ✅ Send with EmailJS
-    console.log("📨 Sending email via EmailJS...");
+  
+    
     emailjs.send("service_5pgpnc2", "template_bld8059", params)
       .then(function (response) {
         console.log("✅ EmailJS response:", response);
@@ -169,11 +169,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       })
       .catch(function (error) {
-        console.error("❌ EmailJS Error:", error);
         alert("❌ Error sending booking details. Please try again.");
       })
       .finally(function () {
-        // Re-enable button
         submitBtn.disabled = false;
         submitBtn.textContent = "Confirm Booking";
       });
