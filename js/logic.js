@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", updateBrandContent);
 /* Send Emails */
  // Attach submit event to the form
   document.getElementById("contactFormFS").addEventListener("submit", function(e) {
-    e.preventDefault(); // Prevent page reload
+    e.preventDefault(); 
 
     // Collect form values
     const params = {
@@ -85,10 +85,42 @@ document.addEventListener("DOMContentLoaded", updateBrandContent);
     emailjs.send("service_5pgpnc2", "template_fqk23ps", params)
       .then((response) => {
         alert("Email sent successfully!");
-        document.getElementById("contactFormFS").reset(); // Reset form
+        document.getElementById("contactFormFS").reset(); 
       })
       .catch((error) => {
         alert("Error sending email. Please try again.");
+        console.error(error);
+      });
+  });
+
+
+  /* Booking form */
+
+  document.getElementById("bookingForm").addEventListener("submit", function(e) {
+    e.preventDefault(); 
+
+    // Collect form values
+    const params = {
+      fullName: document.getElementById("fullName").value,
+      email: document.getElementById("email").value,
+      mobile: document.getElementById("mobile").value,
+      altMobile: document.getElementById("altMobile").value,
+      service: document.getElementById("serviceSelect").value,
+      otherService: document.getElementById("otherService").value,
+      state: document.getElementById("stateSelect").value,
+      city: document.getElementById("city").value,
+      address: document.getElementById("address").value,
+      message: document.getElementById("message").value
+    };
+
+    // Send email via EmailJS using different template
+    emailjs.send("service_5pgpnc2", "template_bld8059", params)
+      .then((response) => {
+        alert("Booking confirmed! Email sent successfully.");
+        document.getElementById("bookingForm").reset(); 
+      })
+      .catch((error) => {
+        alert("Error sending booking details. Please try again.");
         console.error(error);
       });
   });

@@ -22,17 +22,16 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
-    <!-- Email -->
-     <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-</script>
-<script type="text/javascript">
-   (function(){
+  <!-- Email -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+  <script type="text/javascript">
+    (function () {
       emailjs.init({
         publicKey: "JOl37qdpANitfjK0o",
       });
-   })();
-</script>
+    })();
+  </script>
 </head>
 
 <body>
@@ -471,52 +470,50 @@
 
   <!-- ============ FOOTER ============ -->
   <footer>
-   <section class="contact-us" id="contact">
-  <h2>Contact Us</h2>
-  <p>If you have any questions or inquiries, feel free to reach out to us!</p>
+    <section class="contact-us" id="contact">
+      <h2>Contact Us</h2>
+      <p>If you have any questions or inquiries, feel free to reach out to us!</p>
 
-  <form id="contactFormFS" class="contact-form">
+      <form id="contactFormFS" class="contact-form">
 
-  <!-- Name -->
-  <div class="contact-info">
-    <label for="fsName">Enter Your Name:</label>
-    <input type="text" id="fsName" name="Name" placeholder="Enter Your Name"
-           required pattern="^[A-Za-z\s]{2,}$"
-           title="Enter a valid name (letters only)" />
-    <small class="error" id="fsErrName"></small>
-  </div>
+        <!-- Name -->
+        <div class="contact-info">
+          <label for="fsName">Enter Your Name:</label>
+          <input type="text" id="fsName" name="Name" placeholder="Enter Your Name" required pattern="^[A-Za-z\s]{2,}$"
+            title="Enter a valid name (letters only)" />
+          <small class="error" id="fsErrName"></small>
+        </div>
 
-  <!-- Email -->
-  <div class="contact-info">
-    <label for="fsEmail">Enter Your Email:</label>
-    <input type="email" id="fsEmail" name="Email" placeholder="Enter Your Email"
-           required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-           title="Enter a valid email address (e.g., user@example.com)" />
-    <small class="error" id="fsErrEmail"></small>
-  </div>
+        <!-- Email -->
+        <div class="contact-info">
+          <label for="fsEmail">Enter Your Email:</label>
+          <input type="email" id="fsEmail" name="Email" placeholder="Enter Your Email" required
+            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+            title="Enter a valid email address (e.g., user@example.com)" />
+          <small class="error" id="fsErrEmail"></small>
+        </div>
 
-  <!-- Mobile -->
-  <div class="contact-info">
-    <label for="fsMobile">Enter Your Mobile:</label>
-    <input type="tel" id="fsMobile" name="Mobile" placeholder="Enter Your Mobile No."
-           required pattern="^(\+91)?[6-9][0-9]{9}$"
-           title="Enter a valid Indian mobile number (with or without +91)" />
-    <small class="error" id="fsErrMobile"></small>
-  </div>
+        <!-- Mobile -->
+        <div class="contact-info">
+          <label for="fsMobile">Enter Your Mobile:</label>
+          <input type="tel" id="fsMobile" name="Mobile" placeholder="Enter Your Mobile No." required
+            pattern="^(\+91)?[6-9][0-9]{9}$" title="Enter a valid Indian mobile number (with or without +91)" />
+          <small class="error" id="fsErrMobile"></small>
+        </div>
 
-  <!-- Message -->
-  <div class="contact-info">
-    <label for="fsMessage">Enter Your Message:</label>
-    <textarea id="fsMessage" name="Message" placeholder="Enter Your Message"
-              required maxlength="500" rows="5"></textarea>
-    <small class="error" id="fsErrMessage"></small>
-  </div>
+        <!-- Message -->
+        <div class="contact-info">
+          <label for="fsMessage">Enter Your Message:</label>
+          <textarea id="fsMessage" name="Message" placeholder="Enter Your Message" required maxlength="500"
+            rows="5"></textarea>
+          <small class="error" id="fsErrMessage"></small>
+        </div>
 
-  <button type="submit" id="fsBtn">Send</button>
-  
-</form>
+        <button type="submit" id="fsBtn">Send</button>
 
-</section>
+      </form>
+
+    </section>
 
 
 
@@ -585,58 +582,74 @@
       <button class="close-modal" id="closeBookingModal">&times;</button>
       <h2>Book Your Service</h2>
       <form id="bookingForm">
+        <!-- Full Name -->
         <div class="form-group">
           <label for="fullName">Full Name *</label>
-          <input type="text" id="fullName" name="fullName" equired pattern="[a-zA-Z\s]+" placeholder="Enter Your Name"
-            title="Enter Valid Name" />
+          <input type="text" id="fullName" name="fullName" required pattern="[a-zA-Z\s]{2,}"
+            placeholder="Enter Your Name" title="Enter a valid name (letters only)" />
         </div>
+
+        <!-- Email -->
         <div class="form-group">
           <label for="email">Email *</label>
-          <input type="email" id="email" name="email" placeholder="Enter Your Email" required
-            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-            title="Enter a valid email address (e.g., user@example.com)" />
+          <input type="email" id="email" name="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+            placeholder="Enter Your Email" title="Enter a valid email address (e.g., user@example.com)" />
         </div>
+
+        <!-- Mobile -->
         <div class="form-group">
           <label for="mobile">Mobile Number *</label>
-          <input type="tel" id="mobile" name="mobile" placeholder="Enter Your Mobile No." required
-            pattern="(\+91)?[6-9][0-9]{9}" title="Enter a valid Indian mobile number (with or without +91)" />
+          <input type="tel" id="mobile" name="mobile" required pattern="^(\+91)?[6-9][0-9]{9}$"
+            placeholder="Enter Your Mobile No." title="Enter a valid Indian mobile number (with or without +91)" />
         </div>
+
+        <!-- Alternative Mobile -->
         <div class="form-group">
           <label for="altMobile">Alternative Mobile Number *</label>
-          <input type="tel" id="altMobile" name="altMobile" placeholder="Enter Alternate Mobile No." required
-            pattern="(\+91)?[6-9][0-9]{9}" title="Enter a valid Indian mobile number (with or without +91)" />
+          <input type="tel" id="altMobile" name="altMobile" required pattern="^(\+91)?[6-9][0-9]{9}$"
+            placeholder="Enter Alternate Mobile No." title="Enter a valid Indian mobile number (with or without +91)" />
         </div>
+
+        <!-- Service Select -->
         <div class="form-group">
           <label for="serviceSelect">Select Service *</label>
           <select id="serviceSelect" name="serviceSelect" required>
-
+            <!-- Options dynamically populated -->
           </select>
         </div>
+
         <div class="form-group" id="otherServiceContainer" style="display: none;">
-          <label for="otherService">Mention the Type of Service *</label>
+          <label for="otherService">Specify Other Service *</label>
           <input type="text" id="otherService" name="otherService" placeholder="Specify your service" />
         </div>
 
+        <!-- State Select -->
         <div class="form-group">
           <label for="stateSelect">Select State *</label>
           <select id="stateSelect" name="stateSelect" required>
+            <!-- Options dynamically populated -->
           </select>
         </div>
 
+        <!-- City -->
         <div class="form-group">
           <label for="city">City *</label>
           <input type="text" id="city" name="city" required placeholder="Enter your city" />
         </div>
 
+        <!-- Address -->
         <div class="form-group">
           <label for="address">Full Address *</label>
           <textarea id="address" name="address" required maxlength="1000" rows="5"
             placeholder="Enter your full address"></textarea>
         </div>
+
+        <!-- Optional Message -->
         <div class="form-group">
           <label for="message">Message (Optional)</label>
           <textarea id="message" name="message" placeholder="Additional information"></textarea>
         </div>
+
         <button type="submit" class="btn">Confirm Booking</button>
       </form>
     </div>
