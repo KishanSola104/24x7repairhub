@@ -95,70 +95,87 @@ document.addEventListener("DOMContentLoaded", updateBrandContent);
 
 
   
+/* Email for Booking */
+/* ==========================
+   EmailJS - Booking Form
+========================== */
 
-  document.addEventListener("DOMContentLoaded", ()=>{  /* Booking form */
+// ✅ Init EmailJS immediately
+(function () {
+  console.log("Initializing EmailJS...");
+  emailjs.init("JOl37qdpANitfjK0o"); // <-- Your public key
+})();
 
-  // ----------------------------
-// 1️⃣ Show popup on button click
-// ----------------------------
-document.querySelectorAll(".bookingButton").forEach(btn => {
-  btn.addEventListener("click", () => {
-    document.getElementById("bookingPopup").style.display = "block";
-  });
-});
+// ✅ Wait until DOM is ready
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("DOM ready → attaching booking form listener");
 
-// ----------------------------
-// 2️⃣ Handle "Other Service" field
-// ----------------------------
-const serviceSelect = document.getElementById("serviceSelect");
-const otherServiceContainer = document.getElementById("otherServiceContainer");
+  const bookingForm = document.getElementById("bookingForm");
+  const bookingModal = document.getElementById("bookingModal");
+  const submitBtn = bookingForm?.querySelector("button[type='submit']");
 
-serviceSelect.addEventListener("change", function() {
-  if (this.value === "Other") {
-    otherServiceContainer.style.display = "block";
-    document.getElementById("otherService").required = true;
-  } else {
-    otherServiceContainer.style.display = "none";
-    document.getElementById("otherService").required = false;
+  if (!bookingForm) {
+    console.error("❌ bookingForm not found in DOM.");
+    return;
   }
-});
 
-// ----------------------------
-// 3️⃣ Submit booking form
-// ----------------------------
-const bookingForm = document.getElementById("bookingForm");
+  bookingForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    console.log("✅ Booking form submitted");
 
-if (bookingForm) {
-  bookingForm.addEventListener("submit", function(e) {
-    e.preventDefault(); // Prevent page reload
+    if (submitBtn.disabled) {
+      console.warn("⚠️ Submission already in progress. Ignoring duplicate.");
+      return;
+    }
 
-    // Collect all form values
+    // Disable submit button during sending
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+
+    // Collect form data
     const params = {
       fullName: document.getElementById("fullName").value,
       email: document.getElementById("email").value,
       mobile: document.getElementById("mobile").value,
       altMobile: document.getElementById("altMobile").value,
-      service: serviceSelect.value,
+      service: document.getElementById("serviceSelect").value,
       otherService: document.getElementById("otherService").value,
       state: document.getElementById("stateSelect").value,
       city: document.getElementById("city").value,
       address: document.getElementById("address").value,
       message: document.getElementById("message").value,
-      time: new Date().toLocaleString() // Add booking time
     };
 
-    // Send email via EmailJS
+    console.log("📦 Collected params:", params);
+
+    // ✅ Send with EmailJS
+    console.log("📨 Sending email via EmailJS...");
     emailjs.send("service_5pgpnc2", "template_bld8059", params)
-      .then(() => {
-        alert("Booking confirmed! Email sent successfully.");
+      .then(function (response) {
+        console.log("✅ EmailJS response:", response);
+
+        // Success feedback
+        alert("✅ Booking confirmed! Email sent successfully.");
+
+        // Reset form
         bookingForm.reset();
-        // Hide popup after submission
-        document.getElementById("bookingPopup").style.display = "none";
+
+        // Gracefully close modal
+        if (bookingModal) {
+          bookingModal.classList.add("closing");
+          bookingModal.classList.remove("active");
+          document.documentElement.style.overflow = "";
+          setTimeout(() => bookingModal.classList.remove("closing"), 400);
+        }
       })
-      .catch((error) => {
-        console.error(error);
-        alert("Error sending booking email. Please try again.");
+      .catch(function (error) {
+        console.error("❌ EmailJS Error:", error);
+        alert("❌ Error sending booking details. Please try again.");
+      })
+      .finally(function () {
+        // Re-enable button
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Confirm Booking";
       });
   });
-}
 });

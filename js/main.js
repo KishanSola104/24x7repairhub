@@ -81,36 +81,34 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // --------- Booking Modal ----------
-  const bookingModal = document.getElementById("bookingModal");
-  const closeBookingModal = document.getElementById("closeBookingModal");
-  const serviceSelect = document.getElementById("serviceSelect");
-  const otherServiceContainer = document.getElementById(
-    "otherServiceContainer"
-  );
-  const stateDropdown = document.getElementById("stateSelect");
+const bookingModal = document.getElementById("bookingModal");
+const closeBookingModal = document.getElementById("closeBookingModal");
+const serviceSelect = document.getElementById("serviceSelect");
+const otherServiceContainer = document.getElementById("otherServiceContainer");
+const stateDropdown = document.getElementById("stateSelect");
 
-  // open modal on any button with class "btn"
-  document.querySelectorAll(".btn").forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      bookingModal?.classList.add("active");
-      document.getElementById("fullName").focus();
-      document.documentElement.style.overflow = "hidden";
-    });
+ // open modal only on buttons meant for opening modal
+document.querySelectorAll(".open-booking").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault(); // only here
+    bookingModal?.classList.add("active");
+    document.getElementById("fullName").focus();
+    document.documentElement.style.overflow = "hidden";
   });
+});
 
-  function closeModal() {
-    bookingModal?.classList.add("closing");
-    bookingModal?.classList.remove("active");
-    document.documentElement.style.overflow = "";
-    setTimeout(() => bookingModal?.classList.remove("closing"), 400);
-  }
+ function closeModal() {
+  bookingModal?.classList.add("closing");
+  bookingModal?.classList.remove("active");
+  document.documentElement.style.overflow = "";
+  setTimeout(() => bookingModal?.classList.remove("closing"), 400);
+}
 
-  // close modal actions
-  closeBookingModal?.addEventListener("click", closeModal);
-  bookingModal?.addEventListener("click", (e) => {
-    if (e.target === bookingModal) closeModal();
-  });
+ // close modal actions
+closeBookingModal?.addEventListener("click", closeModal);
+bookingModal?.addEventListener("click", (e) => {
+  if (e.target === bookingModal) closeModal();
+});
 
   const servicePlaceholder = document.createElement("option");
   servicePlaceholder.value = "";
