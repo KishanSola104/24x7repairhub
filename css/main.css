@@ -1301,13 +1301,13 @@ html {
 
 
 /* Right Links */
-/* Right Links (Social Media) */
+
 .right-links ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;              /* horizontal order */
-  gap: 1rem;                  /* spacing between icons */
+  display: flex;              
+  gap: 1rem;                
 }
 
 .right-links li {
@@ -1316,25 +1316,25 @@ html {
 }
 
 .right-links a {
-  font-size: 1.2rem;           /* icon size */
+  font-size: 1.2rem;          
   display: inline-block;
-  transition: transform 0.3s ease; /* smooth hover */
+  transition: transform 0.3s ease; 
 }
 
 .right-links a:hover {
-  transform: scale(1.2);       /* zoom effect */
+  transform: scale(1.2);     
 }
 
-/* Responsive - icons centered on small screens */
+/* Responsive  */
 @media (max-width: 768px) {
   .sub-navbar {
-    flex-direction: column;    /* stack contact + social */
+    flex-direction: column;  
     align-items: center;
     text-align: center;
   }
 
   .right-links ul {
     justify-content: center;
-    flex-wrap: wrap;           /* allow wrapping if many icons */
+    flex-wrap: wrap;           
   }
 }

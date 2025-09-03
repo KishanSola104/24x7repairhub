@@ -462,49 +462,38 @@
   <h2>Contact Us</h2>
   <p>If you have any questions or inquiries, feel free to reach out to us!</p>
 
-  <form id="contactFormFS" class="contact-form"
-        action="https://formsubmit.co/24x7repairhub@gmail.com"
-        method="POST" target="_self" novalidate>
-    <!-- Pretty email table -->
-    <input type="hidden" name="_template" value="table">
-    <!-- Subject -->
-    <input type="hidden" name="_subject" value="New Contact — 24x7 Repair Hub">
-    <!-- Disable captcha (optional) -->
-    <input type="hidden" name="_captcha" value="false">
-    <!-- Redirect (optional). If you keep AJAX below, no redirect will occur -->
-    <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
+<form id="contactForm">
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+  <textarea name="message" placeholder="Your Message" required></textarea>
+  <button type="submit">Send</button>
+</form>
 
-    <div class="contact-info">
-      <label for="fsName">Enter Your Name:</label>
-      <input type="text" id="fsName" name="Name" placeholder="Enter Your Name" required pattern="[a-zA-Z\s]+"
-             title="Enter a valid name (letters only)" />
-      <small class="error" id="fsErrName"></small>
-    </div>
+<p id="status"></p>
 
-    <div class="contact-info">
-      <label for="fsEmail">Enter Your Email:</label>
-      <input type="email" id="fsEmail" name="Email" placeholder="Enter Your Email" required
-             pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-             title="Enter a valid email address (e.g., user@example.com)" />
-      <small class="error" id="fsErrEmail"></small>
-    </div>
+<script>
+  document.getElementById("contactForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-    <div class="contact-info">
-      <label for="fsMobile">Enter Your Mobile:</label>
-      <input type="tel" id="fsMobile" name="Mobile" placeholder="Enter Your Mobile No." required
-             pattern="(\+91)?[6-9][0-9]{9}" title="Enter a valid Indian mobile number (with or without +91)" />
-      <small class="error" id="fsErrMobile"></small>
-    </div>
+    const formData = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      message: e.target.message.value,
+    };
 
-    <div class="contact-info">
-      <label for="fsMessage">Enter Your Message:</label>
-      <textarea id="fsMessage" name="Message" placeholder="Enter Your Message" required maxlength="500" rows="5"></textarea>
-      <small class="error" id="fsErrMessage"></small>
-    </div>
+    const res = await fetch("/.netlify/functions/send-email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
 
-    <button type="submit" id="fsBtn">Send</button>
-    <p id="fsStatus" aria-live="polite" style="margin-top:.75rem;font-weight:600;"></p>
-  </form>
+    const data = await res.json();
+    document.getElementById("status").innerText = data.message || "Something went wrong!";
+  });
+</script>
+
+
+
 </section>
 
 <script>
