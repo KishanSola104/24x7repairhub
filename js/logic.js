@@ -94,33 +94,71 @@ document.addEventListener("DOMContentLoaded", updateBrandContent);
   });
 
 
-  /* Booking form */
+  
 
-  document.getElementById("bookingForm").addEventListener("submit", function(e) {
-    e.preventDefault(); 
+  document.addEventListener("DOMContentLoaded", ()=>{  /* Booking form */
 
-    // Collect form values
+  // ----------------------------
+// 1️⃣ Show popup on button click
+// ----------------------------
+document.querySelectorAll(".bookingButton").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.getElementById("bookingPopup").style.display = "block";
+  });
+});
+
+// ----------------------------
+// 2️⃣ Handle "Other Service" field
+// ----------------------------
+const serviceSelect = document.getElementById("serviceSelect");
+const otherServiceContainer = document.getElementById("otherServiceContainer");
+
+serviceSelect.addEventListener("change", function() {
+  if (this.value === "Other") {
+    otherServiceContainer.style.display = "block";
+    document.getElementById("otherService").required = true;
+  } else {
+    otherServiceContainer.style.display = "none";
+    document.getElementById("otherService").required = false;
+  }
+});
+
+// ----------------------------
+// 3️⃣ Submit booking form
+// ----------------------------
+const bookingForm = document.getElementById("bookingForm");
+
+if (bookingForm) {
+  bookingForm.addEventListener("submit", function(e) {
+    e.preventDefault(); // Prevent page reload
+
+    // Collect all form values
     const params = {
       fullName: document.getElementById("fullName").value,
       email: document.getElementById("email").value,
       mobile: document.getElementById("mobile").value,
       altMobile: document.getElementById("altMobile").value,
-      service: document.getElementById("serviceSelect").value,
+      service: serviceSelect.value,
       otherService: document.getElementById("otherService").value,
       state: document.getElementById("stateSelect").value,
       city: document.getElementById("city").value,
       address: document.getElementById("address").value,
-      message: document.getElementById("message").value
+      message: document.getElementById("message").value,
+      time: new Date().toLocaleString() // Add booking time
     };
 
-    // Send email via EmailJS using different template
+    // Send email via EmailJS
     emailjs.send("service_5pgpnc2", "template_bld8059", params)
-      .then((response) => {
+      .then(() => {
         alert("Booking confirmed! Email sent successfully.");
-        document.getElementById("bookingForm").reset(); 
+        bookingForm.reset();
+        // Hide popup after submission
+        document.getElementById("bookingPopup").style.display = "none";
       })
       .catch((error) => {
-        alert("Error sending booking details. Please try again.");
         console.error(error);
+        alert("Error sending booking email. Please try again.");
       });
   });
+}
+});
