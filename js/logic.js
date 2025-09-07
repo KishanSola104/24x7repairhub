@@ -68,12 +68,39 @@ async function updateBrandContent() {
 document.addEventListener("DOMContentLoaded", updateBrandContent);
 
 
-/* Send Emails */
- // Attach submit event to the form
-  document.getElementById("contactFormFS").addEventListener("submit", function(e) {
-    e.preventDefault(); 
+/* EmailJS - Contact Form*/
 
-    // Collect form values
+(function () {
+  console.log("Initializing EmailJS for Contact Form...");
+  emailjs.init("JOl37qdpANitfjK0o"); 
+})();
+
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("DOM ready → attaching contact form listener");
+
+  const contactForm = document.getElementById("contactFormFS");
+  const submitBtn = contactForm?.querySelector("button[type='submit']");
+
+  if (!contactForm) {
+    console.error("Contact form not found in DOM.");
+    return;
+  }
+
+  contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    console.log("Contact form submitted");
+
+    // Prevent multiple submissions
+    if (submitBtn.disabled) {
+      console.warn("Submission already in progress. Ignoring duplicate.");
+      return;
+    }
+
+    // Disable submit button while sending
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+
+    // Collect form data
     const params = {
       name: document.getElementById("fsName").value,
       email: document.getElementById("fsEmail").value,
@@ -83,15 +110,26 @@ document.addEventListener("DOMContentLoaded", updateBrandContent);
 
     // Send email via EmailJS
     emailjs.send("service_5pgpnc2", "template_fqk23ps", params)
-      .then((response) => {
-        alert("Email sent successfully!");
-        document.getElementById("contactFormFS").reset(); 
+      .then(function (response) {
+        console.log("✅ EmailJS response:", response);
+
+        // Success feedback
+        alert("✅ Email sent successfully!");
+
+        // Reset form
+        contactForm.reset();
       })
-      .catch((error) => {
-        alert("Error sending email. Please try again.");
-        console.error(error);
+      .catch(function (error) {
+        console.error("❌ Error sending email:", error);
+        alert("❌ Error sending email. Please try again.");
+      })
+      .finally(function () {
+        // Re-enable submit button
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send";
       });
   });
+});
 
 
   
