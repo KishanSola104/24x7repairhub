@@ -67,67 +67,53 @@ async function updateBrandContent() {
 // Run after DOM is ready
 document.addEventListener("DOMContentLoaded", updateBrandContent);
 
-
-/* EmailJS - Contact Form*/
-
-(function () {
-  console.log("Initializing EmailJS for Contact Form...");
-  emailjs.init("JOl37qdpANitfjK0o"); 
-})();
-
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("DOM ready → attaching contact form listener");
+  console.log("DOM ready → attaching contact form listeners");
 
-  const contactForm = document.getElementById("contactFormFS");
-  const submitBtn = contactForm?.querySelector("button[type='submit']");
+  const forms = document.querySelectorAll(".contact-form");
 
-  if (!contactForm) {
-    console.error("Contact form not found in DOM.");
+  if (!forms.length) {
+    console.error("No contact forms found in DOM.");
     return;
   }
 
-  contactForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-    console.log("Contact form submitted");
+  forms.forEach((form) => {
+    const submitBtn = form.querySelector("button[type='submit']");
 
-    // Prevent multiple submissions
-    if (submitBtn.disabled) {
-      console.warn("Submission already in progress. Ignoring duplicate.");
-      return;
-    }
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      console.log("Contact form submitted");
 
-    // Disable submit button while sending
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Sending...";
+      if (submitBtn.disabled) {
+        console.warn("Submission already in progress. Ignoring duplicate.");
+        return;
+      }
 
-    // Collect form data
-    const params = {
-      name: document.getElementById("fsName").value,
-      email: document.getElementById("fsEmail").value,
-      mobile: document.getElementById("fsMobile").value,
-      message: document.getElementById("fsMessage").value
-    };
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending...";
 
-    // Send email via EmailJS
-    emailjs.send("service_5pgpnc2", "template_fqk23ps", params)
-      .then(function (response) {
-        console.log("✅ EmailJS response:", response);
+      const params = {
+        name: form.querySelector("#fsName")?.value,
+        email: form.querySelector("#fsEmail")?.value,
+        mobile: form.querySelector("#fsMobile")?.value,
+        message: form.querySelector("#fsMessage")?.value,
+      };
 
-        // Success feedback
-        alert("✅ Email sent successfully!");
-
-        // Reset form
-        contactForm.reset();
-      })
-      .catch(function (error) {
-        console.error("❌ Error sending email:", error);
-        alert("❌ Error sending email. Please try again.");
-      })
-      .finally(function () {
-        // Re-enable submit button
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Send";
-      });
+      emailjs.send("service_5pgpnc2", "template_fqk23ps", params)
+        .then((response) => {
+          console.log("✅ EmailJS response:", response);
+          alert("✅ Email sent successfully!");
+          form.reset();
+        })
+        .catch((error) => {
+          console.error("❌ Error sending email:", error);
+          alert("❌ Error sending email. Please try again.");
+        })
+        .finally(() => {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Send";
+        });
+    });
   });
 });
 
