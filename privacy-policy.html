@@ -306,39 +306,49 @@
 
   <!-- ============ FOOTER ============ -->
   <footer>
-    <!-- Contact US Form -->
-    <section class="contact-us" id="contact">
+ <section class="contact-us" id="contact">
       <h2>Contact Us</h2>
       <p>If you have any questions or inquiries, feel free to reach out to us!</p>
 
-      <form id="contactForm" method="POST" action="/submit">
+      <form id="contactFormFS" class="contact-form">
+
+        <!-- Name -->
         <div class="contact-info">
-          <label for="userName">Enter Your Name:</label>
-          <input type="text" id="userName" name="name" placeholder="Enter Your Name" required pattern="[a-zA-Z\s]+"
+          <label for="fsName">Enter Your Name:</label>
+          <input type="text" id="fsName" name="Name" placeholder="Enter Your Name" required pattern="^[A-Za-z\s]{2,}$"
             title="Enter a valid name (letters only)" />
+          <small class="error" id="fsErrName"></small>
         </div>
 
+        <!-- Email -->
         <div class="contact-info">
-          <label for="userEmail">Enter Your Email:</label>
-          <input type="email" id="userEmail" name="email" placeholder="Enter Your Email" required
-            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+          <label for="fsEmail">Enter Your Email:</label>
+          <input type="email" id="fsEmail" name="Email" placeholder="Enter Your Email" required
+            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
             title="Enter a valid email address (e.g., user@example.com)" />
+          <small class="error" id="fsErrEmail"></small>
         </div>
 
+        <!-- Mobile -->
         <div class="contact-info">
-          <label for="userMobile">Enter Your Mobile:</label>
-          <input type="tel" id="userMobile" name="userMobile" placeholder="Enter Your Mobile No." required
-            pattern="(\+91)?[6-9][0-9]{9}" title="Enter a valid Indian mobile number (with or without +91)" />
+          <label for="fsMobile">Enter Your Mobile:</label>
+          <input type="tel" id="fsMobile" name="Mobile" placeholder="Enter Your Mobile No." required
+            pattern="^(\+91)?[6-9][0-9]{9}$" title="Enter a valid Indian mobile number (with or without +91)" />
+          <small class="error" id="fsErrMobile"></small>
         </div>
 
+        <!-- Message -->
         <div class="contact-info">
-          <label for="userMessage">Enter Your Message:</label>
-          <textarea id="userMessage" name="message" placeholder="Enter Your Message" required maxlength="500"
+          <label for="fsMessage">Enter Your Message:</label>
+          <textarea id="fsMessage" name="Message" placeholder="Enter Your Message" required maxlength="500"
             rows="5"></textarea>
+          <small class="error" id="fsErrMessage"></small>
         </div>
 
-        <button type="submit">Send</button>
+        <button type="submit" id="fsBtn">Send</button>
+
       </form>
+
     </section>
 
     <!-- Footer Links -->
