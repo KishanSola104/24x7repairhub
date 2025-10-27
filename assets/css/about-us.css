@@ -9,13 +9,31 @@
   font-family: Arial, sans-serif;
 }
 
-.about-section .section-title {
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 10px;
+/* ==========================
+   SECTION TITLE UNDERLINE
+========================== */
+.section-title {
+  position: relative;
+  display: inline-block;
+  font-size: 2rem;
   color: #004080;
-  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  font-weight: bold;
+  text-align: center;
 }
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: #0078ff;
+  border-radius: 2px;
+}
+
 
 .about-section .section-subtitle {
   font-size: 22px;

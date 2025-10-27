@@ -9,12 +9,29 @@
   text-align: center;
 }
 
+/* ==========================
+   CONTACT US SECTION TITLE (with blue underline)
+========================== */
 .contactus-section .section-title {
   font-size: 32px;
   font-weight: 700;
   margin-bottom: 20px;
   color: #004080;
   text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+}
+
+.contactus-section .section-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: #0078ff; 
+  border-radius: 2px;
 }
 
 .contactus-section .intro-text {
