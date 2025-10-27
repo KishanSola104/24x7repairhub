@@ -1,0 +1,760 @@
+/* Header  */
+/* ==========================
+   HEADER STYLES
+========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: #002b5c;
+  background-color: #fff;
+}
+
+/* =========================
+   HEADER BASE
+========================= */
+.site-header {
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+
+.main-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1.2rem;
+}
+
+.logo-img {
+  width: 130px;
+  height: auto;
+}
+
+/* =========================
+   NAV LINKS (Desktop)
+========================= */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #007bff;
+}
+
+/* =========================
+   MENU TOGGLE (Mobile)
+========================= */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.6rem;
+  color: #222;
+}
+
+/* =========================
+   MOBILE MENU
+========================= */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 260px;
+  height: 100%;
+  background: #fff;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: left 0.3s ease;
+  z-index: 1001;
+}
+
+.mobile-menu.active {
+  left: 0;
+}
+
+.mobile-menu a {
+  color: #222;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.6rem 0;
+  transition: color 0.3s ease;
+}
+
+.mobile-menu a:hover {
+  color: #007bff;
+}
+
+.mobile-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.mobile-logo img {
+  width: 110px;
+  height: auto;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #222;
+}
+
+/* =========================
+   RESPONSIVE BREAKPOINT
+========================= */
+@media (max-width: 1024px) {
+  .nav-links {
+    display: none;
+  }
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* End of Header */
+
+
+
+
+/* Main */
+main {
+  flex: 1;
+}
+
+
+
+/* ==========================
+   LANDING SECTION
+========================== */
+.landing {
+  width: 100%;
+  padding: 60px 20px;
+  background-color: #fff;
+  text-align: center;
+  color: #00264d;
+  font-family: 'Poppins', sans-serif;
+}
+
+.landing-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.landing-image {
+  width: 180px;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto 20px auto;
+}
+
+.landing-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.landing-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+  color: #1a1a1a;
+}
+
+/* Buttons */
+.landing-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: #fff;
+  width: 100%;
+  max-width: 600px;
+  transition: all 0.3s ease;
+}
+
+.btn i {
+  margin-right: 8px;
+  font-size: 1.1rem;
+}
+
+.call-btn {
+  background-color: #1b6c94;
+}
+
+.call-btn:hover {
+  background-color: #155877;
+}
+
+.whatsapp-btn {
+  background-color: #4caf50;
+}
+
+.whatsapp-btn:hover {
+  background-color: #3c9a41;
+}
+
+/* Info Texts */
+.landing-info {
+  margin-top: 30px;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #00264d;
+}
+
+.assist-text {
+  color: #0056a3;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.landing-info p {
+  margin-bottom: 15px;
+  padding: 0 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .landing {
+    padding: 40px 15px;
+  }
+
+  .landing-title {
+    font-size: 2rem;
+  }
+
+  .landing-text {
+    font-size: 0.95rem;
+  }
+
+  .btn {
+    max-width: 90%;
+  }
+
+  .landing-info {
+    font-size: 0.9rem;
+  }
+}
+
+/* end of landing section */
+
+/* start of book section */
+/* =========================
+   BOOK SERVICE SECTION
+========================= */
+.book-service {
+  background-color: #f8f9fb;
+  color: #00264d;
+  text-align: center;
+  padding: 60px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.book-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.book-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #003366;
+  margin-bottom: 1rem;
+}
+
+.book-intro {
+  font-size: 1rem;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.book-steps p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+  .book-service {
+    padding: 45px 15px;
+  }
+
+  .book-title {
+    font-size: 1.6rem;
+  }
+
+  .book-intro,
+  .book-steps p {
+    font-size: 0.9rem;
+  }
+}
+/* end of book section */
+
+/* Clent feedback section start */
+/* =========================
+   CLIENT FEEDBACK SECTION
+========================= */
+.client-feedback {
+  background-color: #f9f9f9;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.feedback-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.feedback-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #003366;
+  margin-bottom: 1rem;
+}
+
+.feedback-subtitle {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.feedback-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.feedback-item {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.8rem;
+  text-align: left;
+}
+
+.feedback-text {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.feedback-author {
+  text-align: right;
+  font-weight: 600;
+  color: #002b5c;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .feedback-title {
+    font-size: 1.6rem;
+  }
+  .feedback-text {
+    font-size: 0.95rem;
+  }
+}
+
+/* Client feedback section end */
+
+
+/* Why Choose us section start  */
+/* =========================
+   WHY CHOOSE US SECTION
+========================= */
+.why-choose-us {
+  background-color:#f9f9f9;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.choose-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.choose-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #003366;
+  margin-bottom: 2rem;
+}
+
+.choose-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.choose-item {
+  background-color:#fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.choose-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.choose-item p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .choose-title {
+    font-size: 1.6rem;
+  }
+
+  .choose-item p {
+    font-size: 0.95rem;
+  }
+}
+/* Why Choose us section end  */
+
+
+/* Need more help */
+
+
+
+
+/* =========================
+   LANDING SECTION
+========================= */
+.landing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  padding: 4rem 1rem;
+  background-color: #f9f9f9;
+}
+
+.landing-content {
+  max-width: 800px;
+  width: 100%;
+}
+
+.landing-img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  margin: 0 auto 1.5rem;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.landing-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #003366;
+  margin-bottom: 1rem;
+}
+
+.landing-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  padding: 0 1rem;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+  .landing {
+    padding: 3rem 1rem;
+  }
+
+  .landing-title {
+    font-size: 1.6rem;
+  }
+
+  .landing-text {
+    font-size: 0.95rem;
+  }
+}
+
+
+/* Need More */
+/* =========================
+   NEED MORE HELP SECTION
+========================= */
+.need-help {
+  background-color: #f9f9f9; /* matches footer navy */
+  color: #333;
+  text-align: center;
+  padding: 4rem 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.need-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.need-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: #003366
+}
+
+.need-subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.need-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1b6c94;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.need-btn i {
+  margin-right: 10px;
+  font-size: 1.1rem;
+}
+
+.need-btn:hover {
+  background-color: #155877;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .need-title {
+    font-size: 1.6rem;
+  }
+
+  .need-subtitle {
+    font-size: 1rem;
+  }
+
+  .need-btn {
+    width: 90%;
+    max-width: 400px;
+    font-size: 0.95rem;
+  }
+}
+/* End of need more */
+
+
+
+/* footer */
+
+/* ========== MOBILE CALL STICKY BAR ========== */
+/* ========== MOBILE CALL STICKY BAR ========== */
+.mobile-call-bar {
+  display: none; /* hidden on desktop */
+}
+
+.mobile-call-bar a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #28a745; /* green */
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 16px 0; /* increased height for easier tapping */
+  font-size: 1.1rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.25);
+  transition: background-color 0.3s ease;
+}
+
+.mobile-call-bar a:hover {
+  background-color: #218838;
+}
+
+.mobile-call-bar i {
+  font-size: 1.4rem;
+  margin-right: 10px;
+}
+
+/* Show only on small devices */
+@media (max-width: 768px) {
+  .mobile-call-bar {
+    display: block;
+  }
+
+  footer {
+    padding-bottom: 75px; /* add space so footer not hidden */
+  }
+}
+
+
+
+
+/* =========================
+   FOOTER STYLES
+========================= */
+
+footer {
+  background-color: #001f4d; /* Navy blue */
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.site-footer {
+  background-color: #002b5c; /* navy blue */
+  color: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.footer-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.footer-call {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.footer-text,
+.footer-disclaimer {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 1rem;
+}
+
+.footer-bottom {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.footer-bottom a {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+  color: #00bfff; /* light blue hover */
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+@media (max-width: 768px) {
+  .footer-call {
+    font-size: 1rem;
+  }
+
+  .footer-text,
+  .footer-disclaimer,
+  .footer-bottom {
+    font-size: 0.85rem;
+  }
+
+  .footer-container {
+    padding: 0 0.5rem;
+  }
+}
+/* End of footer */
+
+/* End of the index page styling */
+
+

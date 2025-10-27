@@ -1,0 +1,85 @@
+/* =========================
+   TESTIMONIALS SECTION
+========================= */
+.testimonials-section {
+  background-color: #f8f9fb;
+  padding: 4rem 1rem;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  color: #00264d;
+}
+
+.testimonials-section .container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #003366;
+  margin-bottom: 1rem;
+}
+
+.intro-text {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+}
+
+/* Testimonials Grid */
+.testimonials-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Individual Testimonial Card */
+.testimonial-item {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.testimonial-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.testimonial-item p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.testimonial-item span {
+  display: block;
+  font-weight: 600;
+  color: #002b5c;
+  text-align: right;
+  font-size: 0.95rem;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .intro-text {
+    font-size: 0.95rem;
+  }
+
+  .testimonial-item p {
+    font-size: 0.95rem;
+  }
+
+  .testimonial-item span {
+    font-size: 0.9rem;
+  }
+}
